@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="解题思路：如果你对于动态规划还不是很了解，或者没怎么做过动态规划的题目的话，那么 House Robber （小偷问题）这道题是一个非常好的入门题目。本文会以 House Robber 题目为例子，讲解动态规划题目的四个基本步骤。 动态规划的的四个解题步骤是： 定义子问题写出子问题的递推关系确定 DP 数组的计算顺序空间优化（可选）下面我们一步一步地进行讲解。 步骤一：定义子问题稍微接触过一点动态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/05/04/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DDP%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="解题思路：如果你对于动态规划还不是很了解，或者没怎么做过动态规划的题目的话，那么 House Robber （小偷问题）这道题是一个非常好的入门题目。本文会以 House Robber 题目为例子，讲解动态规划题目的四个基本步骤。 动态规划的的四个解题步骤是： 定义子问题写出子问题的递推关系确定 DP 数组的计算顺序空间优化（可选）下面我们一步一步地进行讲解。 步骤一：定义子问题稍微接触过一点动态">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic.leetcode-cn.com/91c71fba111b52580bd0f99bd77f386ae26055b6ffb015c3df9dc26204e8465a.jpg">
+<meta property="og:image" content="https://pic.leetcode-cn.com/ccceac397062b8ac6d369506f5481be5e473d4f9b35751da7861a681bbecc3e8.jpg">
+<meta property="og:image" content="https://pic.leetcode-cn.com/a0d29f1322a7938733fd62f3b2de8b04f678591e40cdf4062810e8d9608e4b5e.jpg">
+<meta property="og:image" content="https://pic.leetcode-cn.com/daa19672855195ae1496f6a3f112dbe9fe0e16e9541238002acaac44f22be613.jpg">
+<meta property="article:published_time" content="2023-05-04T12:17:00.878Z">
+<meta property="article:modified_time" content="2023-04-27T02:53:58.428Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.leetcode-cn.com/91c71fba111b52580bd0f99bd77f386ae26055b6ffb015c3df9dc26204e8465a.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-打家劫舍DP问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DDP%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.878Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>解题思路：<br>如果你对于动态规划还不是很了解，或者没怎么做过动态规划的题目的话，那么 House Robber （小偷问题）这道题是一个非常好的入门题目。本文会以 House Robber 题目为例子，讲解动态规划题目的四个基本步骤。</p>
+<p>动态规划的的四个解题步骤是：</p>
+<p>定义子问题<br>写出子问题的递推关系<br>确定 DP 数组的计算顺序<br>空间优化（可选）<br>下面我们一步一步地进行讲解。</p>
+<p>步骤一：定义子问题<br>稍微接触过一点动态规划的朋友都知道动态规划有一个 “子问题” 的定义。什么是子问题？子问题是和原问题相似，但规模较小的问题。例如这道小偷问题，原问题是 “从全部房子中能偷到的最大金额”，将问题的规模缩小，子问题就是 “从 kkk 个房子中能偷到的最大金额 ”，用 f(k)表示。</p>
+<p><img src="https://pic.leetcode-cn.com/91c71fba111b52580bd0f99bd77f386ae26055b6ffb015c3df9dc26204e8465a.jpg"></p>
+<p>可以看到，子问题是参数化的，我们定义的子问题中有参数 k。假设一共有 n 个房子的话，就一共有 n 个子问题。动态规划实际上就是通过求这一堆子问题的解，来求出原问题的解。这要求子问题需要具备两个性质：</p>
+<p>原问题要能由子问题表示。例如这道小偷问题中，k&#x3D;n 时实际上就是原问题。否则，解了半天子问题还是解不出原问题，那子问题岂不是白解了。<br>一个子问题的解要能通过其他子问题的解求出。例如这道小偷问题中，f(k)可以由 f(k−1)和 f(k−2)求出，具体原理后面会解释。这个性质就是教科书中所说的“最优子结构”。如果定义不出这样的子问题，那么这道题实际上没法用动态规划解。<br>小偷问题由于比较简单，定义子问题实际上是很直观的。一些比较难的动态规划题目可能需要一些定义子问题的技巧。</p>
+<h4 id="步骤二：写出子问题的递推关系"><a href="#步骤二：写出子问题的递推关系" class="headerlink" title="步骤二：写出子问题的递推关系"></a>步骤二：写出子问题的递推关系</h4><p>这一步是求解动态规划问题最关键的一步。然而，这一步也是最无法在代码中体现出来的一步。在做题的时候，最好把这一步的思路用注释的形式写下来。做动态规划题目不要求快，而要确保无误。否则，写代码五分钟，找 bug 半小时，岂不美哉？</p>
+<p>我们来分析一下这道小偷问题的递推关系：</p>
+<p>假设一共有 n 个房子，每个房子的金额分别是 H0,H1,…,Hn−1,子问题 f(k)表示从前 k 个房子（即 H0,H1,…,Hk−1 ）中能偷到的最大金额。那么，偷 k 个房子有两种偷法：</p>
+<p><img src="https://pic.leetcode-cn.com/ccceac397062b8ac6d369506f5481be5e473d4f9b35751da7861a681bbecc3e8.jpg"></p>
+<p>k 个房子中最后一个房子是 Hk−1 。如果不偷这个房子，那么问题就变成在前 k−1 个房子中偷到最大的金额，也就是子问题 f(k−1)。如果偷这个房子，那么前一个房子 Hk−2 显然不能偷，其他房子不受影响。那么问题就变成在前 k−2个房子中偷到的最大的金额。两种情况中，选择金额较大的一种结果。</p>
+<p>$$<br>f(k)&#x3D;max{f(k−1),Hk−1+f(k−2)}<br>$$<br>在写递推关系的时候，要注意写上 k&#x3D;0和 k&#x3D;1的基本情况：</p>
+<p>当 k&#x3D;0 时，没有房子，所以 f(0)&#x3D;0。<br>当 k&#x3D;1 时，只有一个房子，偷这个房子即可，所以 f(1)&#x3D;H0 。这样才能构成完整的递推关系，后面写代码也不容易在边界条件上出错。</p>
+<h4 id="步骤三：确定-DP-数组的计算顺序"><a href="#步骤三：确定-DP-数组的计算顺序" class="headerlink" title="步骤三：确定 DP 数组的计算顺序"></a>步骤三：确定 DP 数组的计算顺序</h4><p>在确定了子问题的递推关系之后，下一步就是依次计算出这些子问题了。在很多教程中都会写，动态规划有两种计算顺序，一种是自顶向下的、使用备忘录的递归方法，一种是自底向上的、使用 dp 数组的循环方法。不过在普通的动态规划题目中，99% 的情况我们都不需要用到备忘录方法，所以我们最好坚持用自底向上的 dp 数组。</p>
+<p>DP 数组也可以叫”子问题数组”，因为 DP 数组中的每一个元素都对应一个子问题。如下图所示，dp[k] 对应子问题 f(k)，即偷前 k间房子的最大金额。<br><img src="https://pic.leetcode-cn.com/a0d29f1322a7938733fd62f3b2de8b04f678591e40cdf4062810e8d9608e4b5e.jpg"></p>
+<p>那么，只要搞清楚了子问题的计算顺序，就可以确定 DP 数组的计算顺序。对于小偷问题，我们分析子问题的依赖关系，发现每个 f(k)依赖 f(k−1)和 f(k−2)。也就是说，dp[k] 依赖 dp[k-1] 和 dp[k-2]，如下图所示。</p>
+<p><img src="https://pic.leetcode-cn.com/daa19672855195ae1496f6a3f112dbe9fe0e16e9541238002acaac44f22be613.jpg"></p>
+<p>那么，既然 DP 数组中的依赖关系都是向右指的，DP 数组的计算顺序就是从左向右。这样我们可以保证，计算一个子问题的时候，它所依赖的那些子问题已经计算出来了。</p>
+<p>确定了 DP 数组的计算顺序之后，我们就可以写出题解代码了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">rob</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 子问题：</span></span><br><span class="line">    <span class="comment">// f(k) = 偷 [0..k) 房间中的最大金额</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// f(0) = 0</span></span><br><span class="line">    <span class="comment">// f(1) = nums[0]</span></span><br><span class="line">    <span class="comment">// f(k) = max&#123; rob(k-1), nums[k-1] + rob(k-2) &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> nums.length;</span><br><span class="line">    <span class="type">int</span>[] dp = <span class="keyword">new</span> <span class="title class_">int</span>[N+<span class="number">1</span>];</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    dp[<span class="number">1</span>] = nums[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">2</span>; k &lt;= N; k++) &#123;</span><br><span class="line">        dp[k] = Math.max(dp[k-<span class="number">1</span>], nums[k-<span class="number">1</span>] + dp[k-<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[N];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DDP%E9%97%AE%E9%A2%98/" data-id="clkqudeyg0008bcqzflqv1eq1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E5%9B%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/04/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E5%92%8C%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/">day03 课上笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98%E8%AE%AD%E7%BB%83%E4%B9%8B%E4%BA%8C%E5%88%86%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%B3%BB%E5%88%97/">每日一题之滑动窗口</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">一道算法题之求x的平方根</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%8E%A5%E9%BE%99%E6%95%B0%E5%88%97/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

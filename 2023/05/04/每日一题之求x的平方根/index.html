@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>一道算法题之求x的平方根 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="题目要求求x的平方根（要求不适用pow函数，只能手写一个mysqrt函数，当然不可以使用pow，那么我们可以通过使用其他的函数来完成这个函数的功能）给你一个非负整数 x ，计算并返回 x 的 算术平方根 。 由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。 注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。 示例一12输入：x &#x3D; 4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一道算法题之求x的平方根">
+<meta property="og:url" content="http://example.com/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="题目要求求x的平方根（要求不适用pow函数，只能手写一个mysqrt函数，当然不可以使用pow，那么我们可以通过使用其他的函数来完成这个函数的功能）给你一个非负整数 x ，计算并返回 x 的 算术平方根 。 由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。 注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。 示例一12输入：x &#x3D; 4">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-04T12:17:00.883Z">
+<meta property="article:modified_time" content="2023-04-15T08:09:47.688Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-每日一题之求x的平方根" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.883Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      一道算法题之求x的平方根
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h3><h4 id="求x的平方根（要求不适用pow函数，只能手写一个mysqrt函数，当然不可以使用pow，那么我们可以通过使用其他的函数来完成这个函数的功能）"><a href="#求x的平方根（要求不适用pow函数，只能手写一个mysqrt函数，当然不可以使用pow，那么我们可以通过使用其他的函数来完成这个函数的功能）" class="headerlink" title="求x的平方根（要求不适用pow函数，只能手写一个mysqrt函数，当然不可以使用pow，那么我们可以通过使用其他的函数来完成这个函数的功能）"></a>求x的平方根（要求不适用pow函数，只能手写一个mysqrt函数，当然不可以使用pow，那么我们可以通过使用其他的函数来完成这个函数的功能）</h4><p>给你一个非负整数 x ，计算并返回 x 的 算术平方根 。</p>
+<p>由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。</p>
+<p>注意：不允许使用任何内置指数函数和算符，例如 pow(x, 0.5) 或者 x ** 0.5 。</p>
+<h6 id="示例一"><a href="#示例一" class="headerlink" title="示例一"></a>示例一</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：x = <span class="number">4</span></span><br><span class="line">输出：<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h6 id="示例二"><a href="#示例二" class="headerlink" title="示例二"></a>示例二</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 8</span><br><span class="line">输出：2</span><br><span class="line">解释：8 的算术平方根是 2.82842..., 由于返回类型是整数，小数部分将被舍去。</span><br></pre></td></tr></table></figure>
+
+<p>提示:</p>
+<ul>
+<li><code>0 &lt;= x &lt;= 231 - 1</code></li>
+</ul>
+<p>袖珍计算器算法</p>
+<p>「袖珍计算器算法」是一种用指数函数 exp和对数函数ln 代替平方根函数的方法。我们通过有限的可以使用的数学函数，得到我们想要计算的结果。<br>$$<br>\sqrt{x}&#x3D;(x)^1&#x2F;2&#x3D;(e^lnx)^1&#x2F;2&#x3D;e^1&#x2F;2lnx<br>$$</p>
+<p>由于计算机无法存储浮点数的精确值，但是指数函数和对数函数的参数和返回值均为浮点数，因此在计算过程中会存在误差。例如当x&#x3D;2147395600时，计算的结果与正确值相差10的-11次方，这样对结果取整数部分时，会得到46339这个错误的结果。因此在得到结果的整数部分ans后，我们应该找出ans和ans+1中哪一个是真正的答案。&#96;&#96;&#96;&#96;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> </span><br><span class="line">&#123;    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Scanner sc=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);        </span><br><span class="line">        <span class="type">int</span> n=sc.nextInt();        									System.out.println(mySqrt(n));        </span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">mySqrt</span><span class="params">(<span class="type">int</span> x)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;        </span><br><span class="line">        <span class="type">int</span> ans=(<span class="type">int</span>)Math.exp(<span class="number">0.5</span>*Math.log(x));        				<span class="keyword">return</span> (<span class="type">long</span>)(ans+<span class="number">1</span>)*(ans+<span class="number">1</span>)&lt;=x?ans+<span class="number">1</span>:ans;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" data-id="clkqudeyi000abcqzfhdpda9l" data-title="一道算法题之求x的平方根" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%B3%BB%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          每日一题之滑动窗口
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%8E%A5%E9%BE%99%E6%95%B0%E5%88%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/">day03 课上笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98%E8%AE%AD%E7%BB%83%E4%B9%8B%E4%BA%8C%E5%88%86%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%B3%BB%E5%88%97/">每日一题之滑动窗口</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">一道算法题之求x的平方根</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%8E%A5%E9%BE%99%E6%95%B0%E5%88%97/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

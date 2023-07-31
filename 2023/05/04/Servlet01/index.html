@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1. Servlet 技术 a) 什么是 Servlet1、Servlet 是 JavaEE 规范之一。规范就是接口 2、Servlet 就 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。 3、Servlet 是运行在服务器上的一个 java 小程序，它可以接收客户端发送过来的请求，并响应数据给客户端。 a) 手动实现 Serv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2023/05/04/Servlet01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. Servlet 技术 a) 什么是 Servlet1、Servlet 是 JavaEE 规范之一。规范就是接口 2、Servlet 就 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。 3、Servlet 是运行在服务器上的一个 java 小程序，它可以接收客户端发送过来的请求，并响应数据给客户端。 a) 手动实现 Serv">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-04T12:17:00.871Z">
+<meta property="article:modified_time" content="2023-04-19T10:41:30.258Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Servlet01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/Servlet01/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.871Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>1.</strong> <strong>Servlet</strong> <strong>技术</strong></p>
+<h2 id="a-什么是-Servlet"><a href="#a-什么是-Servlet" class="headerlink" title="a) 什么是 Servlet"></a><strong>a)</strong> <strong>什么是</strong> <strong>Servlet</strong></h2><p>1、Servlet 是 JavaEE 规范之一。规范就是接口</p>
+<p>2、Servlet 就 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。</p>
+<p>3、Servlet 是运行在服务器上的一个 java 小程序，<strong>它可以接收客户端发送过来的请求，并响应数据给客户端。</strong></p>
+<h2 id="a-手动实现-Servlet-程序"><a href="#a-手动实现-Servlet-程序" class="headerlink" title="a) 手动实现 Servlet 程序"></a><strong>a)</strong> <strong>手动实现</strong> <strong>Servlet</strong> <strong>程序</strong></h2><p>1、编写一个类去实现 Servlet 接口</p>
+<p>2、实现 service 方法，处理请求，并响应数据</p>
+<p>3、到 web.xml 中去配置 servlet 程序的访问地址  </p>
+<h4 id="编写一个类去实现servlet接口"><a href="#编写一个类去实现servlet接口" class="headerlink" title="编写一个类去实现servlet接口"></a>编写一个类去实现servlet接口</h4><p>先创建一个Servlet项目，然后在src目录下面创建一个包</p>
+<p>我们这里项目名就设置为Servlet，然后下面创建了个包</p>
+<p>在包里创建类，我们这里设置类名为hello_servlet</p>
+<p>我们的类是实现Servlet接口的所有我们要在类后面添上<code>implements Servlet</code></p>
+<p>然后程序会自动为我们添加上面的<code>import javax.servlet.*;</code></p>
+<p>这里需要补充的一点是：如果没有导入包的话，需要导入包（这里需要用的包是servlet-api.jar）当然导入了以后如果是jar也没用，只有add as library</p>
+<p>add as library有什么用？<br>       多用于将将外部jar（lib &#x2F; * .jar）添加到IntelliJ IDEA项目。</p>
+<pre><code>   通俗点说，就是你做项目的时候需要一些外部jar包，比如我们用java连接数据库时用到了阿里巴巴公司的数据库连接池Druid，我们就需要导入Druid相关的jar包和配置文件，这些jar包和配置文件就属于外部jar包和配置文件。一般我们都是在项目路径下单独再建一个libs目录来存放这些东西。但直接复制粘贴到这个lib文件夹里面是不够的，我们还要把这些文件和jar包  add as library  来保证各种依赖关系。
+</code></pre>
+<p>然后我们在程序里面用快捷键Alt+Shift+Insert(我这的Insert键在小键盘0上面)会弹出如下的框，我们选择第四个，即那个快捷键为CTRL+I的那个选项，当然，我们也可以直接CTRL+I</p>
+<p>这里是我们选择我们要实现的方法，我们这里全选</p>
+<p>注意圈起来的service方法，service方法是专门用来处理请求和相应的。简单来说，只要我们访问我们的这个程序hello_servlet就会访问这个方法</p>
+<h4 id="实现servlet方法，处理请求，并响应数据"><a href="#实现servlet方法，处理请求，并响应数据" class="headerlink" title="实现servlet方法，处理请求，并响应数据"></a>实现servlet方法，处理请求，并响应数据</h4><p>我们在这里打印一点东西</p>
+<h4 id="到web-xml文件中配置servlete程序的访问地址"><a href="#到web-xml文件中配置servlete程序的访问地址" class="headerlink" title="到web.xml文件中配置servlete程序的访问地址"></a>到web.<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=xml&spm=1001.2101.3001.7020">xml</a>文件中配置servlete程序的访问地址</h4><p>我们不配置的话服务器是不知道我们的这个程序的</p>
+<ol>
+<li><p>只需要进入到自动生成的WEB-INF目录下面的web.xml文件里面配置即可。</p>
+<p>2.在web-app标签里面创建一个servlet标签，中间会自动生成一个servlet-name标签，我们需要在添加一个servlet-class标签。</p>
+</li>
+</ol>
+<p>解释一下各个东西的含义<br>servlet标签用于给Tomcat配置Servlet程序<br>servlet-name用于为servlet程序起一个别名，一般是类名<br>servlet-class是servlet程序的全类名，全类名就是<code>包含类的包名.类名</code></p>
+<p>配置访问地址</p>
+<p>写一个servlet-mapping标签，里面有两个属性servlet-name和url-pattern</p>
+<p>每样的含义：<br>servlet-mapping：用于为程序配置访问地址</p>
+<p>servlet-name：标签用于告诉服务器我当前配置的地址给哪个程序使用，一般情况下他的值应该是要跟上面的servlet-name中的值完全一样，也就是说我们这个设置的地址给它使用</p>
+<p>url-pattern：配置访问地址,一般设置为以”&#x2F;“开头，后面跟着我们需要的自定义的访问路径，这个我们可以随意设置，但是我们一般设置成和我们的程序有着对应关系的，因为这样设置让我们可以一目了然</p>
+<p>&#x2F;表示的是：<a href="http://ip:port/工程路径/，工程路径就是我们之前在IDEA里面设置Tomcat的配置的时候里面自动生成的或者我们自己设置的默认工程路径">http://ip:port/工程路径/，工程路径就是我们之前在IDEA里面设置Tomcat的配置的时候里面自动生成的或者我们自己设置的默认工程路径</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/Servlet01/" data-id="clkqudey90001bcqz9keec1lr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2023/05/04/tomcat/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/05/04/day05%E5%BC%82%E5%B8%B8%E3%80%81%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/">day03 课上笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98%E8%AE%AD%E7%BB%83%E4%B9%8B%E4%BA%8C%E5%88%86%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%B3%BB%E5%88%97/">每日一题之滑动窗口</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">一道算法题之求x的平方根</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%8E%A5%E9%BE%99%E6%95%B0%E5%88%97/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

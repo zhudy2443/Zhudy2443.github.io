@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-前后端分离项目建立以及连接操作数据库的合并" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%BB%BA%E7%AB%8B%E4%BB%A5%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%88%E5%B9%B6/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.874Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>前后端分离项目建立以及连接操作数据库的合并</strong></p>
+<p>技术栈： Vue.js、Python-Flask、Mysql</p>
+<p>网络请求模块： axios</p>
+<p><strong>前端方面：</strong> </p>
+<p>前提概要： 需要安装Node.js来进行后续项目配置，如果已经安装可以跳过这一步</p>
+<p>Node安装（下载链接）：<a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi">https://nodejs.org/dist/v16.14.0/node-v16.14.0-x64.msi</a></p>
+<p>Node配置镜像源避免下载过慢：<a target="_blank" rel="noopener" href="https://blog.csdn.net/rosener/article/details/120782647">(19条消息) node 安装 配置 及添加全局镜像_rosener的博客-CSDN博客_node设置镜像</a></p>
+<p>npm install -g cnpm –registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+<p><strong>V</strong>ue.js:</p>
+<p>学习文档：<a href="#Vue-js-%E6%98%AF%E4%BB%80%E4%B9%88">介绍 — Vue.js (vuejs.org)</a></p>
+<p>Vue-cli脚手架(项目前端搭建工具)：<a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/installation.html">安装 | Vue CLI (vuejs.org)</a>  </p>
+<p><strong>Python：</strong></p>
+<p>Pip安装模块换源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yuzaipiaofei/article/details/80891108">(19条消息) PIP 更换国内安装源_佛系程序员-CSDN博客_pip换源</a></p>
+<p>安装Python-Flask   Web服务框架： 命令提示符窗口输入命令<strong>p****ip install flask</strong></p>
+<p>等待安装完毕即可</p>
+<p>Flask+pymysql 进行web操作存取数据库： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53267940">Flask中通过PyMySQL模块让操作mysql数据库方法(一) - 知乎 (zhihu.com)</a></p>
+<p>这里说一些需要注意的问题：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;Hello World!&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>, port=<span class="string">&#x27;5000&#x27;</span>, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>创建了一个接口，运行接口即使用app.run,具体内容可以根据内容自定</p>
+<p>首先安装axios</p>
+<p>如果检查过于细致，则在vue-cli3在vue.config.js里面关闭eslint检查</p>
+<p>module.exports&#x3D;{lintOnSave:false,……}</p>
+<p>python flask beforeRequest 解决跨域问题</p>
+<p>安装flask-cors:pip install flask-cors</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request</span><br><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;Hello World!&#x27;</span>&#125;</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>, port=<span class="string">&#x27;5000&#x27;</span>, debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=<span class="string">&quot;getMsg&quot;</span>&gt;getMsg&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以完成后端的请求，前端发出请求，后端则接收</p>
+<h1 id="Flask中通过PyMySQL模块让操作mysql数据库方法-一"><a href="#Flask中通过PyMySQL模块让操作mysql数据库方法-一" class="headerlink" title="Flask中通过PyMySQL模块让操作mysql数据库方法(一)"></a>Flask中通过PyMySQL模块让操作mysql数据库方法(一)</h1><h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a><strong>基本思路</strong></h2><ol>
+<li>新建一个 config.py文件用于存放数据库连接信息，将对数据库操作封装成一个类</li>
+<li>在app.py文件的路由中，设置好查询语句，调用查询语句，将查询结果通过参数反馈给模板文件</li>
+<li>在模板文件中，使用循环显示内容</li>
+</ol>
+<h2 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a><strong>具体操作</strong></h2><p><strong>1、环境搭建</strong></p>
+<p><strong>2、引用及config.py文件</strong></p>
+<p>在config.py文件中导入pymysql模块，同时将对数据的增删改查操作封装成一个类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line">DB_CONFIG = &#123;</span><br><span class="line">	<span class="string">&quot;host&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">	<span class="string">&quot;port&quot;</span>: <span class="number">3306</span>,</span><br><span class="line">	<span class="string">&quot;user&quot;</span>: <span class="string">&quot;root&quot;</span>,</span><br><span class="line">	<span class="string">&quot;passwd&quot;</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">	<span class="string">&quot;db&quot;</span>: <span class="string">&quot;world&quot;</span>,</span><br><span class="line">	<span class="string">&quot;charset&quot;</span>: <span class="string">&quot;utf8&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SQLManager</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 初始化实例方法</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">		self.conn = <span class="literal">None</span></span><br><span class="line">		self.cursor = <span class="literal">None</span></span><br><span class="line">		self.connect()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 连接数据库</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">connect</span>(<span class="params">self</span>):</span><br><span class="line">		self.conn = pymysql.connect(</span><br><span class="line">			host=DB_CONFIG[<span class="string">&quot;host&quot;</span>],</span><br><span class="line">			port=DB_CONFIG[<span class="string">&quot;port&quot;</span>],</span><br><span class="line">			user=DB_CONFIG[<span class="string">&quot;user&quot;</span>],</span><br><span class="line">			passwd=DB_CONFIG[<span class="string">&quot;passwd&quot;</span>],</span><br><span class="line">			db=DB_CONFIG[<span class="string">&quot;db&quot;</span>],</span><br><span class="line">			charset=DB_CONFIG[<span class="string">&quot;charset&quot;</span>]</span><br><span class="line">		)</span><br><span class="line">		self.cursor = self.conn.cursor(cursor=pymysql.cursors.DictCursor)</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 查询多条数据</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">get_list</span>(<span class="params">self, sql, args=<span class="literal">None</span></span>):</span><br><span class="line">		self.cursor.execute(sql, args)</span><br><span class="line">		result = self.cursor.fetchall()</span><br><span class="line">		<span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 查询单条数据</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">get_one</span>(<span class="params">self, sql, args=<span class="literal">None</span></span>):</span><br><span class="line">		self.cursor.execute(sql, args)</span><br><span class="line">		result = self.cursor.fetchone()</span><br><span class="line">		<span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 执行单条SQL语句</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">moddify</span>(<span class="params">self, sql, args=<span class="literal">None</span></span>):</span><br><span class="line">		self.cursor.execute(sql, args)</span><br><span class="line">		self.conn.commit()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 我如果要批量执行多个创建操作，虽然只建立了一次数据库连接但是还是会多次提交，可不可以改成一次连接，</span></span><br><span class="line">	<span class="comment"># 一次提交呢？</span></span><br><span class="line">	<span class="comment"># 可以，只需要用上pymysql的executemany()</span></span><br><span class="line">	<span class="comment"># 方法就可以了。</span></span><br><span class="line">	<span class="comment"># 执行多条SQL语句</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">multi_modify</span>(<span class="params">self, sql, args=<span class="literal">None</span></span>):</span><br><span class="line">		self.cursor.executemany(sql, args)</span><br><span class="line">		self.conn.commit()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 创建单条记录的语句</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">create</span>(<span class="params">self, sql, args=<span class="literal">None</span></span>):</span><br><span class="line">		self.cursor.execute(sql, args)</span><br><span class="line">		self.conn.commit()</span><br><span class="line">		last_id = self.cursor.lastrowid</span><br><span class="line">		<span class="keyword">return</span> last_id</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 关闭数据库cursor和连接</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">close</span>(<span class="params">self</span>):</span><br><span class="line">		self.cursor.close()</span><br><span class="line">		self.conn.close()</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 最后，我们每次操作完数据库之后都要手动关闭，可不可以写成自动关闭的呢？</span></span><br><span class="line">	<span class="comment"># 联想到我们之前学过的文件操作，使用with语句可以实现缩进结束自动关闭文件句柄的例子。</span></span><br><span class="line">	<span class="comment"># 我们来把我们的数据库连接类SQLManager类再优化下，使其支持with语句操作。</span></span><br><span class="line">	<span class="comment"># 进入with语句自动执行</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__enter__</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">	<span class="comment"># 退出with语句块自动执行</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__exit__</span>(<span class="params">self, exc_type, exc_val, exc_tb</span>):</span><br><span class="line">		self.close()</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、在app.py文件中引用config.py文件</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> config <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(__name__)</span><br></pre></td></tr></table></figure>
+
+<p><strong>4、在路由中具体操作</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章列表</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/list_city&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">list_city</span>():</span><br><span class="line">    db = SQLManager()</span><br><span class="line">    citys = db.get_list(<span class="string">&#x27;select * from city &#x27;</span>)</span><br><span class="line">    db.close()</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;list.html&#x27;</span>, citys=citys)</span><br></pre></td></tr></table></figure>
+
+<p><strong>5、模板文件的调用</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="built_in">id</span>=<span class="string">&quot;list&quot;</span>&gt;</span><br><span class="line">    &#123;% <span class="keyword">for</span> item <span class="keyword">in</span> citys %&#125;</span><br><span class="line">        &lt;div <span class="keyword">class</span>=<span class="string">&quot;p&quot;</span>&gt;</span><br><span class="line">        &lt;h4&gt;&lt;a href=<span class="string">&quot;&#123;&#123; url_for(&#x27;post&#x27;, post_id=item[&#x27;ID&#x27;]) &#125;&#125;&quot;</span>&gt;&#123;&#123; item[<span class="string">&#x27;Name&#x27;</span>] &#125;&#125;&lt;/a&gt;&lt;/h4&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123; item[<span class="string">&#x27;CountryCode&#x27;</span>] &#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>前端进行访问后端，后端访问数据库的过程</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE%E5%BB%BA%E7%AB%8B%E4%BB%A5%E5%8F%8A%E8%BF%9E%E6%8E%A5%E6%93%8D%E4%BD%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%90%88%E5%B9%B6/" data-id="clkqudeyb0002bcqzfzidcczz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-tomcat" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/tomcat/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.872Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>1.</strong> <strong>JavaWeb</strong> <strong>的概念</strong></p>
+<h2 id="a-什么是-JavaWeb"><a href="#a-什么是-JavaWeb" class="headerlink" title="a) 什么是 JavaWeb"></a><strong>a)</strong> <strong>什么是</strong> <strong>JavaWeb</strong></h2><p>JavaWeb 是指，所有通过 Java 语言编写可以通过浏览器访问的程序的总称，叫 JavaWeb。JavaWeb 是基于请求和响应来开发的。</p>
+<h2 id="b-什么是请求"><a href="#b-什么是请求" class="headerlink" title="b) 什么是请求"></a><strong>b)</strong> <strong>什么是请求</strong></h2><p>请求是指客户端给服务器发送数据，叫请求 Request。</p>
+<h2 id="c-什么是响应"><a href="#c-什么是响应" class="headerlink" title="c) 什么是响应"></a><strong>c)</strong> <strong>什么是响应</strong></h2><p>响应是指服务器给客户端回传数据，叫响应 Response。</p>
+<h2 id="d-请求和响应的关系"><a href="#d-请求和响应的关系" class="headerlink" title="d) 请求和响应的关系"></a><strong>d)</strong> <strong>请求和响应的关系</strong></h2><p>请求和响应是成对出现的，有请求就有响应。</p>
+<h1 id="1-Web-资源的分类"><a href="#1-Web-资源的分类" class="headerlink" title="1. Web 资源的分类"></a><strong>1.</strong> <strong>Web</strong> <strong>资源的分类</strong></h1><p>web 资源按实现的技术和呈现的效果的不同，又分为静态资源和动态资源两种。静态资源：	html、css、js、txt、mp4 视频 , jpg 图片</p>
+<p>动态资源：	jsp 页面、Servlet 程序</p>
+<h1 id="2-常用的-Web-服务器"><a href="#2-常用的-Web-服务器" class="headerlink" title="2. 常用的 Web 服务器"></a><strong>2.</strong> <strong>常用的</strong> <strong>Web</strong> <strong>服务器</strong></h1><p>Tomcat：由 Apache 组织提供的一种 Web 服务器，提供对 jsp 和 Servlet 的支持。它是一种轻量级的 javaWeb 容器（服务器），也是当前应用最广的 JavaWeb 服务器（免费）。</p>
+<p>Jboss：是一个遵从 JavaEE 规范的、开放源代码的、纯 Java 的 EJB 服务器，它支持所有的 JavaEE 规范（免费）。GlassFish： 由 Oracle 公司开发的一款 JavaWeb 服务器，是一款强健的商业服务器，达到产品级质量（应用很少）。Resin：是 CAUCHO 公司的产品，是一个非常流行的服务器，对 <a target="_blank" rel="noopener" href="http://baike.baidu.com/view/25169.htm">servlet </a>和 <a target="_blank" rel="noopener" href="http://baike.baidu.com/subview/3387/16963334.htm">JSP </a>提供了良好的支持，</p>
+<p>性能也比较优良，resin 自身采用 JAVA 语言开发（收费，应用比较多）。</p>
+<p>WebLogic：是 Oracle 公司的产品，是目前应用最广泛的 Web 服务器，支持 JavaEE 规范，</p>
+<p>而且不断的完善以适应新的开发要求，适合大型项目（收费，用的不多，适合大公司）。</p>
+<h1 id="3-Tomcat-服务器和Servlet-版本的对应关系"><a href="#3-Tomcat-服务器和Servlet-版本的对应关系" class="headerlink" title="3. Tomcat 服务器和Servlet 版本的对应关系"></a><strong>3.</strong> <strong>Tomcat</strong> <strong>服务器和</strong>Servlet <strong>版本的对应关系</strong></h1><p>当前企业常用的版本	7.<em>、8.</em></p>
+<p>Servlet 程序从 2.5 版本是现在世面使用最多的版本（xml 配置） 到了 Servlet3.0 之后。就是注解版本的 Servlet 使用。</p>
+<p>以 2.5 版本为主线讲解 Servlet 程序。</p>
+<h1 id="4-Tomcat-的使用"><a href="#4-Tomcat-的使用" class="headerlink" title="4. Tomcat 的使用"></a><strong>4.</strong> <strong>Tomcat</strong> <strong>的使用</strong></h1><h2 id="a-安装"><a href="#a-安装" class="headerlink" title="a) 安装"></a><strong>a)</strong> <strong>安装</strong></h2><p>找到你需要用的 Tomcat 版本对应的 zip 压缩包，解压到需要安装的目录即可。</p>
+<h2 id="b-目录介绍"><a href="#b-目录介绍" class="headerlink" title="b) 目录介绍"></a><strong>b)</strong> <strong>目录介绍</strong></h2><p>bin	专门用来存放 Tomcat 服务器的可执行程序conf	专门用来存放 Tocmat 服务器的配置文件lib	专门用来存放 Tomcat 服务器的 jar 包</p>
+<p>logs	专门用来存放 Tomcat 服务器运行时输出的日记信息temp	专门用来存放 Tomcat 运行时产生的临时数据webapps	专门用来存放部署的 Web 工程。</p>
+<p>work	是 Tomcat 工作时的目录，用来存放 Tomcat 运行时 jsp 翻译为 Servlet 的源码，和 Session 钝化的目录。</p>
+<h2 id="c-如何启动-Tomcat-服务器"><a href="#c-如何启动-Tomcat-服务器" class="headerlink" title="c) 如何启动 Tomcat 服务器"></a><strong>c)</strong> <strong>如何启动</strong> <strong>Tomcat</strong> <strong>服务器</strong></h2><p>找到 Tomcat 目录下的 bin 目录下的 startup.bat 文件，双击，就可以启动 Tomcat 服务器。</p>
+<p>如何测试 Tomcat 服务器启动成功？？？</p>
+<p>打开浏览器，在浏览器地址栏中输入以下地址测试：localhost:8080</p>
+<p>补充对于2022版本的idea</p>
+<h1 id="1-新建Java-Class"><a href="#1-新建Java-Class" class="headerlink" title="1.新建Java Class"></a>1.新建Java Class</h1><p>鉴于新版2022的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=IDEA%E4%B8%93%E4%B8%9A%E7%89%88&spm=1001.2101.3001.7020">IDEA专业版</a>没有Java Class选项，这里先给出创建 Java Class的创建过程。 </p>
+<p>1.这里首先创建一个项目，点击create。（JDK按照自己的就行）</p>
+<p>2.点击右键，new一个Java Class。，这就完成了java class的创建。</p>
+<h1 id="2-添加框架"><a href="#2-添加框架" class="headerlink" title="2.添加框架"></a>2.添加框架</h1><ol start="3">
+<li><p>在项目上右键，点击Add Framework Support，接下来选择Web Application，点击OK。</p>
+<p>PS：你会发现这里多了一个Web的目录，并且下面有一个WEB-INF、index.jsp,但是现在并不能进行运行！</p>
+</li>
+</ol>
+<h1 id="3-配置Maven"><a href="#3-配置Maven" class="headerlink" title="3. 配置Maven"></a>3. 配置Maven</h1><p>\4. 接下来就是配置Maven。</p>
+<ol>
+<li><p>打开File ，setting</p>
+<p>2.在搜索框内键入Maven，出现这个界面。</p>
+</li>
+<li><p>选择自己的Maven 安装目录，然后点击Override，完成之后点击Apply ，点击OK。</p>
+</li>
+</ol>
+<h1 id="4-配置项目结构"><a href="#4-配置项目结构" class="headerlink" title="4.配置项目结构"></a>4.配置项目结构</h1><p>5.配置项目结构，点击File，找到Project Structure</p>
+<p>检查自己的JDK是否是自己的，并且是正确的。</p>
+<p>modules：</p>
+<p>Facets：</p>
+<p> Artifacts：</p>
+<p>（如果Artifacts没有，如图所示操作即可）</p>
+<h1 id="5-配置tomcat（10如果不能运行就选择9）"><a href="#5-配置tomcat（10如果不能运行就选择9）" class="headerlink" title="5.配置tomcat（10如果不能运行就选择9）"></a>5.配置tomcat（10如果不能运行就选择9）</h1><p>1.点击右上角的锤子的复选框，点击edit configurations</p>
+<p>2.点击加号，选择tomcat server，选择local（不要选择tomcatEE哦！！！）</p>
+<p>3.这里我已经弄过了会直接出现tomcat，第一次加载的情况下选择configure，选择自己tomcat的安装目录即可。点击OK。</p>
+<p>4.点击Deployment，点击加号，选择Aftifacets。</p>
+<p>5.你会发现小锤子的右边有你tomcat的对应版本了！</p>
+<ol>
+<li>然后点击右边的绿色运行键运行！</li>
+<li>成功运行index.jsp！！！</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/tomcat/" data-id="clkqudeye0005bcqz6ix1af46" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Servlet01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/Servlet01/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.871Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>1.</strong> <strong>Servlet</strong> <strong>技术</strong></p>
+<h2 id="a-什么是-Servlet"><a href="#a-什么是-Servlet" class="headerlink" title="a) 什么是 Servlet"></a><strong>a)</strong> <strong>什么是</strong> <strong>Servlet</strong></h2><p>1、Servlet 是 JavaEE 规范之一。规范就是接口</p>
+<p>2、Servlet 就 JavaWeb 三大组件之一。三大组件分别是：Servlet 程序、Filter 过滤器、Listener 监听器。</p>
+<p>3、Servlet 是运行在服务器上的一个 java 小程序，<strong>它可以接收客户端发送过来的请求，并响应数据给客户端。</strong></p>
+<h2 id="a-手动实现-Servlet-程序"><a href="#a-手动实现-Servlet-程序" class="headerlink" title="a) 手动实现 Servlet 程序"></a><strong>a)</strong> <strong>手动实现</strong> <strong>Servlet</strong> <strong>程序</strong></h2><p>1、编写一个类去实现 Servlet 接口</p>
+<p>2、实现 service 方法，处理请求，并响应数据</p>
+<p>3、到 web.xml 中去配置 servlet 程序的访问地址  </p>
+<h4 id="编写一个类去实现servlet接口"><a href="#编写一个类去实现servlet接口" class="headerlink" title="编写一个类去实现servlet接口"></a>编写一个类去实现servlet接口</h4><p>先创建一个Servlet项目，然后在src目录下面创建一个包</p>
+<p>我们这里项目名就设置为Servlet，然后下面创建了个包</p>
+<p>在包里创建类，我们这里设置类名为hello_servlet</p>
+<p>我们的类是实现Servlet接口的所有我们要在类后面添上<code>implements Servlet</code></p>
+<p>然后程序会自动为我们添加上面的<code>import javax.servlet.*;</code></p>
+<p>这里需要补充的一点是：如果没有导入包的话，需要导入包（这里需要用的包是servlet-api.jar）当然导入了以后如果是jar也没用，只有add as library</p>
+<p>add as library有什么用？<br>       多用于将将外部jar（lib &#x2F; * .jar）添加到IntelliJ IDEA项目。</p>
+<pre><code>   通俗点说，就是你做项目的时候需要一些外部jar包，比如我们用java连接数据库时用到了阿里巴巴公司的数据库连接池Druid，我们就需要导入Druid相关的jar包和配置文件，这些jar包和配置文件就属于外部jar包和配置文件。一般我们都是在项目路径下单独再建一个libs目录来存放这些东西。但直接复制粘贴到这个lib文件夹里面是不够的，我们还要把这些文件和jar包  add as library  来保证各种依赖关系。
+</code></pre>
+<p>然后我们在程序里面用快捷键Alt+Shift+Insert(我这的Insert键在小键盘0上面)会弹出如下的框，我们选择第四个，即那个快捷键为CTRL+I的那个选项，当然，我们也可以直接CTRL+I</p>
+<p>这里是我们选择我们要实现的方法，我们这里全选</p>
+<p>注意圈起来的service方法，service方法是专门用来处理请求和相应的。简单来说，只要我们访问我们的这个程序hello_servlet就会访问这个方法</p>
+<h4 id="实现servlet方法，处理请求，并响应数据"><a href="#实现servlet方法，处理请求，并响应数据" class="headerlink" title="实现servlet方法，处理请求，并响应数据"></a>实现servlet方法，处理请求，并响应数据</h4><p>我们在这里打印一点东西</p>
+<h4 id="到web-xml文件中配置servlete程序的访问地址"><a href="#到web-xml文件中配置servlete程序的访问地址" class="headerlink" title="到web.xml文件中配置servlete程序的访问地址"></a>到web.<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=xml&spm=1001.2101.3001.7020">xml</a>文件中配置servlete程序的访问地址</h4><p>我们不配置的话服务器是不知道我们的这个程序的</p>
+<ol>
+<li><p>只需要进入到自动生成的WEB-INF目录下面的web.xml文件里面配置即可。</p>
+<p>2.在web-app标签里面创建一个servlet标签，中间会自动生成一个servlet-name标签，我们需要在添加一个servlet-class标签。</p>
+</li>
+</ol>
+<p>解释一下各个东西的含义<br>servlet标签用于给Tomcat配置Servlet程序<br>servlet-name用于为servlet程序起一个别名，一般是类名<br>servlet-class是servlet程序的全类名，全类名就是<code>包含类的包名.类名</code></p>
+<p>配置访问地址</p>
+<p>写一个servlet-mapping标签，里面有两个属性servlet-name和url-pattern</p>
+<p>每样的含义：<br>servlet-mapping：用于为程序配置访问地址</p>
+<p>servlet-name：标签用于告诉服务器我当前配置的地址给哪个程序使用，一般情况下他的值应该是要跟上面的servlet-name中的值完全一样，也就是说我们这个设置的地址给它使用</p>
+<p>url-pattern：配置访问地址,一般设置为以”&#x2F;“开头，后面跟着我们需要的自定义的访问路径，这个我们可以随意设置，但是我们一般设置成和我们的程序有着对应关系的，因为这样设置让我们可以一目了然</p>
+<p>&#x2F;表示的是：<a href="http://ip:port/工程路径/，工程路径就是我们之前在IDEA里面设置Tomcat的配置的时候里面自动生成的或者我们自己设置的默认工程路径">http://ip:port/工程路径/，工程路径就是我们之前在IDEA里面设置Tomcat的配置的时候里面自动生成的或者我们自己设置的默认工程路径</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/Servlet01/" data-id="clkqudey90001bcqz9keec1lr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-day05异常、线程笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/day05%E5%BC%82%E5%B8%B8%E3%80%81%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.870Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title： day05 异常、线程 笔记</p>
+<hr>
+<p><strong>1.1</strong> <strong>异常概念</strong></p>
+<p>异常，就是不正常的意思。在生活中:医生说,你的身体某个部位有异常,该部位和正常相比有点不同,该部位的功能将受影响.在程序中的意思就是： </p>
+<p><strong>异常</strong> ：指的是程序在执行过程中，出现的非正常的情况，最终会导致JVM的非正常停止。在Java等面向对象的编程语言中，异常本身是一个类，产生异常就是创建异常对象并抛出了一个异常对象。Java处理异常的方式是中断处理。 </p>
+<p>异常指的并不是语法错误,语法错了,编译不通过,不会产生字节码文件,根本不能运行</p>
+<p><strong>1.2</strong> <strong>异常体系</strong></p>
+<p>异常机制其实是帮助我们<strong>找到</strong>程序中的问题，异常的根类是 java.lang.Throwable ，其下有两个子类： java.lang.Error 与 java.lang.Exception ，平常所说的异常指 java.lang.Exception 。</p>
+<p>Throwable体系：</p>
+<p><strong>Error</strong>:严重错误Error，无法通过处理的错误，只能事先避免，好比绝症。 </p>
+<p><strong>Exception</strong>:表示异常，异常产生后程序员可以通过代码的方式纠正，使程序继续运行，是必须要处理的。好比感冒、阑尾炎。 </p>
+<p><strong>Throwable</strong>中的常用方法：</p>
+<p>public void printStackTrace() :打印异常的详细信息。 </p>
+<p>包含了异常的类型*,<em>异常的原因</em>,<em>还包括异常出现的位置</em>,<em>在开发和调试阶段</em>,<em>都得使用</em>printStackTrace*。 </p>
+<p>public String getMessage() :获取发生异常的原因。 </p>
+<p>提示给用户的时候*,*就提示错误原因。 </p>
+<p>public String toString() :获取异常的类型和异常描述信息(不用)。 </p>
+<p>出现异常***,<em><strong>不要紧张</strong></em>,<em><strong>把异常的简单类名</strong></em>,<em><strong>拷贝到</strong></em>API***中去查。</p>
+<p><strong>1.3</strong> <strong>异常分类</strong></p>
+<p>我们平常说的异常就是指Exception，因为这类异常一旦出现，我们就要对代码进行更正，修复程序。</p>
+<p>异常(Exception)的分类:根据在编译时期还是运行时期去检查异常? </p>
+<p><strong>编译时期异常</strong>:checked异常。在编译时期,就会检查,如果没有处理异常,则编译失败。(如日期格式化异常) </p>
+<p><strong>运行时期异常</strong>:runtime异常。在运行时期,检查异常.在编译时期,运行异常不会编译器检测(不报错)。(如数学异 </p>
+<p>常)</p>
+<p><strong>1.4</strong> <strong>异常的产生过程解析</strong></p>
+<p>先运行下面的程序，程序会产生一个数组索引越界异常ArrayIndexOfBoundsException。我们通过图解来解析下 </p>
+<p>异常产生的过程。</p>
+<p>一个案例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day10;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayTools</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr=&#123;<span class="number">34</span>,<span class="number">12</span>,<span class="number">67</span>&#125;;</span><br><span class="line">        <span class="type">int</span> num=ArrayTools.getElement(arr,<span class="number">4</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;num=&quot;</span>+num);</span><br><span class="line">        System.out.println(<span class="string">&quot;over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getElement</span><span class="params">(<span class="type">int</span>[] arr,<span class="type">int</span> index)</span>&#123;</span><br><span class="line">        <span class="type">int</span> element=arr[index];</span><br><span class="line">        <span class="keyword">return</span> element;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>由于没有找到4索引，导致运行时发生了异常，这个异常JVM认识，ArrayIndexOfBoundsException，这个异常java本身有描述，描述内容包括，异常的名称、异常的内容、异常的产生位置。java将这些信息直接封装到异常对象中。new ArrayIndexOutOfBoundsException（4）</p>
+<p>main（）方法接收到了数组索引越界异常对象，由于main()方法并没有进行异常处理，main（）方法就会继续把异常抛给调用者JVM，当JVM收到异常以后，将异常对象中的名称、异常内容、位置都显示在原幕上，同时让程序立即终止。</p>
+<p><strong>第二章 异常的处理</strong></p>
+<p>Java异常处理的五个关键字：</p>
+<p>try、catch、finally、throw、throws</p>
+<p><strong>2.1</strong> 抛出异常throw</p>
+<p>在编写程序时，我们必须要考虑程序出现问题的情况。比如，在定义方法时，方法需要接受参数。那么，当调用方 </p>
+<p>法使用接受到的参数时，首先需要先对参数数据进行合法的判断，数据若不合法，就应该告诉调用者，传递合法的 </p>
+<p>数据进来。这时需要使用抛出异常的方式来告诉调用者。 </p>
+<p>在java中，提供了一个<strong>throw</strong>关键字，它用来抛出一个指定的异常对象。那么，抛出一个异常具体如何操作呢？ </p>
+<p>\1. 创建一个异常对象。封装一些提示信息(信息可以自己编写)。 </p>
+<p>\2. 需要将这个异常对象告知给调用者。怎么告知呢？怎么将这个异常对象传递到调用者处呢？通过关键字throw就可以完成。throw 异常对象。 </p>
+<p>throw<strong>用在方法内</strong>，用来抛出一个异常对象，将这个异常对象传递到调用者处，并结束当前方法的执行。</p>
+<p>演示一下throw的使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day10;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Throws</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr=&#123;<span class="number">2</span>,<span class="number">4</span>,<span class="number">52</span>,<span class="number">2</span>&#125;;</span><br><span class="line">        <span class="type">int</span> index=<span class="number">4</span>;</span><br><span class="line">        <span class="type">int</span> element=getElement(arr,index);</span><br><span class="line">        System.out.println(element);</span><br><span class="line">        System.out.println(<span class="string">&quot;over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">getElement</span><span class="params">(<span class="type">int</span>[] arr,<span class="type">int</span> index)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;arr.length-<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ArrayIndexOutOfBoundsException</span>(<span class="string">&quot;越界&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> element=arr[index];</span><br><span class="line">        <span class="keyword">return</span> element;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>注意：如果产生了问题，我们就会throw将问题描述类即异常进行抛出，也就是将问题返回给该方法的调用者。 </p>
+<p>那么对于调用者来说，该怎么处理呢？一种是进行捕获处理，另一种就是继续讲问题声明出去，使用throws声明处理。</p>
+<p><strong>2.2 Objects</strong>非空判断</p>
+<p>还记得我们学习过一个类Objects吗，曾经提到过它由一些静态的实用方法组成，这些方法是null-save（空指针安全的）或null-tolerant（容忍空指针的），那么在它的源码中，对对象为null的值进行了抛出异常操作。 </p>
+<p>public static <T> T requireNonNull(T obj) :查看指定引用对象不是null。 </p>
+<p>查看源码发现这里对为null的进行了抛出异常操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T <span class="title function_">requireNonNull</span><span class="params">(T obj)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj == <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.3</strong> <strong>声明异常</strong>throws</p>
+<p><strong>声明异常</strong>：将问题标识出来，报告给调用者。如果方法内通过throw抛出了编译时异常，而没有捕获处理（稍后讲解该方式），那么必须通过throws进行声明，让调用者去处理。 </p>
+<p>关键字<strong>throws</strong>运用于方法声明之上,用于表示当前方法不处理异常,而是提醒该方法的调用者来处理异常(抛出异常). </p>
+<p><strong>声明异常格式：</strong></p>
+<p>修饰符 返回值类型 方法名(参数) throws 异常类名1,异常类名2…{ }</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day10;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThrowsDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        read(<span class="string">&quot;t.txt&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">read</span><span class="params">(String path)</span> <span class="keyword">throws</span> FileNotFoundException&#123;</span><br><span class="line">        <span class="keyword">if</span>(!path.equals(<span class="string">&quot;a.txt&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">FileNotFoundException</span>(<span class="string">&quot;文件不存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>throws用于进行异常类的声明，若该方法可能有多种异常情况产生，那么在throws后面可以写多个异常类，用逗号隔开。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day10;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThrowsDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        read(<span class="string">&quot;c.txt&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">read</span><span class="params">(String path)</span> <span class="keyword">throws</span> FileNotFoundException, IOException &#123;</span><br><span class="line">        <span class="keyword">if</span>(!path.equals(<span class="string">&quot;a.txt&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">FileNotFoundException</span>(<span class="string">&quot;文件不存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!path.equals(<span class="string">&quot;b.txt&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IOException</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.4</strong> <strong>捕获异常</strong>try…catch</p>
+<p>如果异常出现的话,会立刻终止程序,所以我们得处理异常: </p>
+<p>\1. 该方法不处理,而是声明抛出,由该方法的调用者来处理(throws)。 </p>
+<p>\2. 在方法中使用try-catch的语句块来处理异常。 </p>
+<p><strong>try-catch</strong>的方式就是捕获异常。 </p>
+<p><strong>捕获异常</strong>：</p>
+<p>Java中对异常有针对性的语句进行捕获，可以对出现的异常进行指定方式的处理。 </p>
+<p>捕获异常语法如下： </p>
+<p>try{ </p>
+<p>​	编写可能会出现异常的代码 </p>
+<p>}catch(异常类型 e){ </p>
+<p>​	处理异常的代码 </p>
+<p>​	&#x2F;&#x2F;记录日志&#x2F;打印异常信息&#x2F;继续抛出异常 </p>
+<p>}</p>
+<p><strong>try</strong>：该代码块中编写可能产生异常的代码。 </p>
+<p><strong>catch</strong>：用来进行某种异常的捕获，实现对捕获到的异常进行处理。 </p>
+<p>注意:try和catch都不能单独使用,必须连用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day10;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TryCatchDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            read(<span class="string">&quot;b.txt&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (FileNotFoundException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">read</span><span class="params">(String path)</span> <span class="keyword">throws</span> FileNotFoundException&#123;</span><br><span class="line">        <span class="keyword">if</span>(!path.equals(<span class="string">&quot;a.txt&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">FileNotFoundException</span>(<span class="string">&quot;文件不存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如何获取异常信息： </p>
+<p>Throwable类中定义了一些查看方法: </p>
+<p>public String getMessage() :获取异常的描述信息,原因(提示给用户的时候,就提示错误原因。 </p>
+<p>public String toString() :获取异常的类型和异常描述信息(不用)。 </p>
+<p>public void printStackTrace() :打印异常的跟踪栈信息并输出到控制台。 </p>
+<p>包含了异常的类型*,<em>异常的原因</em>,<em>还包括异常出现的位置</em>,<em>在开发和调试阶段</em>,<em>都得使用</em>printStackTrace*。</p>
+<p><strong>2.4 finally</strong> <strong>代码块</strong></p>
+<p><strong>finally</strong>：有一些特定的代码无论异常是否发生，都需要执行。另外，因为异常会引发程序跳转，导致有些语句执行不到。而finally就是解决这个问题的，在finally代码块中存放的代码都是一定会被执行的。 </p>
+<p>什么时候的代码必须最终执行？ </p>
+<p>当我们在try语句块中打开了一些物理资源(磁盘文件&#x2F;网络连接&#x2F;数据库连接等),我们都得在使用完之后,最终关闭打开的资源。 </p>
+<p>finally的语法: </p>
+<p>try…catch….finally:自身需要处理异常,最终还得关闭资源。 </p>
+<p>注意:finally不能单独使用。 </p>
+<p>比如在我们之后学习的IO流中，当打开了一个关联文件的资源，最后程序不管结果如何，都需要把这个资源关闭掉</p>
+<p>参考案例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day10;</span><br><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TryCatchDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            read(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (FileNotFoundException e)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;不管程序怎样，这里都将会被执行。&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;over&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">read</span><span class="params">(String path)</span> <span class="keyword">throws</span> FileNotFoundException&#123;</span><br><span class="line">        <span class="keyword">if</span>(!path.equals(<span class="string">&quot;a.txt&quot;</span>))&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">FileNotFoundException</span>(<span class="string">&quot;文件不存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当只有在try或者catch中调用退出JVM的相关方法,此时finally才不会执行,否则finally永远会执行。</p>
+<p><strong>2.5</strong> <strong>异常注意事项</strong></p>
+<p>多个异常使用捕获又该如何处理呢？ </p>
+<p>\1. 多个异常分别处理。 </p>
+<p>\2. 多个异常一次捕获，多次处理。 </p>
+<p>\3. 多个异常一次捕获一次处理。 </p>
+<p>一般我们是使用一次捕获多次处理方式，格式如下： </p>
+<p>try{ </p>
+<p>编写可能会出现异常的代码 </p>
+<p>}catch(异常类型A e){ 当try中出现A类型异常,就用该catch来捕获. </p>
+<p>处理异常的代码 </p>
+<p>&#x2F;&#x2F;记录日志&#x2F;打印异常信息&#x2F;继续抛出异常 </p>
+<p>}catch(异常类型B e){ 当try中出现B类型异常,就用该catch来捕获. </p>
+<p>处理异常的代码 </p>
+<p>&#x2F;&#x2F;记录日志&#x2F;打印异常信息&#x2F;继续抛出异常 </p>
+<p>}</p>
+<p>注意:这种异常处理方式，要求多个catch中的异常不能相同，并且若catch中的多个异常之间有子父类异常的关系，那么子类异常要求在上面的catch处理，父类异常在下面的catch处理。</p>
+<p>运行时异常被抛出可以不处理。即不捕获也不声明抛出。 </p>
+<p>如果finally有return语句,永远返回finally中的结果,避免该情况. </p>
+<p>如果父类抛出了多个异常,子类重写父类方法时,抛出和父类相同的异常或者是父类异常的子类或者不抛出异常。 </p>
+<p>父类方法没有抛出异常，子类重写父类该方法时也不可抛出异常。此时子类产生该异常，只能捕获处理，不能声明抛出</p>
+<p><strong>第三章 自定义异常</strong></p>
+<p><strong>为什么需要自定义异常类</strong>:</p>
+<p>我们说了Java中不同的异常类,分别表示着某一种具体的异常情况,那么在开发中总是有些异常情况是SUN没有定义 </p>
+<p>好的,此时我们根据自己业务的异常情况来定义异常类。例如年龄负数问题,考试成绩负数问题等等。 </p>
+<p>在上述代码中，发现这些异常都是JDK内部定义好的，但是实际开发中也会出现很多异常,这些异常很可能在JDK中 </p>
+<p>没有定义过,例如年龄负数问题,考试成绩负数问题.那么能不能自己定义异常呢？ </p>
+<p><strong>什么是自定义异常类</strong>:</p>
+<p>在开发中根据自己业务的异常情况来定义异常类. </p>
+<p>自定义一个业务逻辑异常: <strong>RegisterException</strong>。一个注册异常类。 </p>
+<p><strong>异常类如何定义</strong>:</p>
+<p>\1. 自定义一个编译期异常: 自定义类 并继承于 java.lang.Exception </p>
+<p>\2. 自定义一个运行时期的异常类:自定义类 并继承于 java.lang.RuntimeException </p>
+<p><strong>3.2</strong> <strong>自定义异常的练习</strong></p>
+<p>要求：我们模拟注册操作，如果用户名已存在，则抛出异常并提示：亲，该用户名已经被注册。 </p>
+<p>首先定义一个登陆异常类RegisterException： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day13;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RegisterException</span> <span class="keyword">extends</span> <span class="title class_">Exception</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">RegisterException</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">RegisterException</span><span class="params">(String message)</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>模拟登陆操作，使用数组模拟数据库中存储的数据，并提供当前注册账号是否存在方法用于判断。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day13;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String[] names=&#123;<span class="string">&quot;bill&quot;</span>,<span class="string">&quot;hill&quot;</span>,<span class="string">&quot;jill&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            checkUsername(<span class="string">&quot;bill&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;注册成功&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RegisterException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">checkUsername</span><span class="params">(String uname)</span> <span class="keyword">throws</span> RegisterException &#123;</span><br><span class="line">        <span class="keyword">for</span> (String name : names) &#123;</span><br><span class="line">            <span class="keyword">if</span>(name.equals(uname))&#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RegisterException</span>(name+<span class="string">&quot;已被注册了&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>第四章 多线程</strong></p>
+<p>我们在之前，学习的程序在没有跳转语句的前提下，都是由上至下依次执行，那现在想要设计一个程序，边打游戏 </p>
+<p>边听歌，怎么设计？ </p>
+<p>要解决上述问题,咱们得使用多进程或者多线程来解决.</p>
+<p><strong>4.1</strong> <strong>并发与并行</strong></p>
+<p><strong>并发</strong>：指两个或多个事件在<strong>同一个时间段内</strong>发生。 </p>
+<p><strong>并行</strong>：指两个或多个事件在<strong>同一时刻</strong>发生（同时发生）</p>
+<p>在操作系统中，安装了多个程序，并发指的是在一段时间内宏观上有多个程序同时运行，这在单 CPU 系统中，每 一时刻只能有一道程序执行，即微观上这些程序是分时的交替运行，只不过是给人的感觉是同时运行，那是因为分时交替运行的时间是非常短的。而在多个 CPU 系统中，则这些可以并发执行的程序便可以分配到多个处理器上（CPU），实现多任务并行执行，即利用每个处理器来处理一个可以并发执行的程序，这样多个程序便可以同时执行。目前电脑市场上说的多核CPU，便是多核处理器，核 越多，并行处理的程序越多，能大大的提高电脑运行的效率。</p>
+<p>注意：单核处理器的计算机肯定是不能并行的处理多个任务的，只能是多个任务在单个CPU上并发运行。同理,线程也是一样的，从宏观角度上理解线程是并行运行的，但是从微观角度上分析却是串行运行的，即一个 线程一个线程的去运行，当系统只有一个CPU时，线程会以某种顺序执行多个线程，我们把这种情况称之为线程调度。</p>
+<p><strong>4.2</strong> <strong>线程与进程</strong></p>
+<p><strong>进程</strong>：是指一个内存中运行的应用程序，每个进程都有一个独立的内存空间，一个应用程序可以同时运行多个进程；进程也是程序的一次执行过程，是系统运行程序的基本单位；系统运行一个程序即是一个进程从创建、运行到消亡的过程。 </p>
+<p><strong>线程</strong>：线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中是可以有多个线程的，这个应用程序也可以称之为多线程程序。 </p>
+<p>简而言之：一个程序运行后至少有一个进程，一个进程中可以包含多个线程</p>
+<p><strong>线程调度</strong>:</p>
+<p>分时调度 </p>
+<p>所有线程轮流使用 CPU 的使用权，平均分配每个线程占用 CPU 的时间。 </p>
+<p>抢占式调度 </p>
+<p>优先让优先级高的线程使用 CPU，如果线程的优先级相同，那么会随机选择一个(线程随机性)，Java使用的为抢占式调度。设置线程的优先级</p>
+<p>抢占式调度详解 </p>
+<p>大部分操作系统都支持多进程并发运行，现在的操作系统几乎都支持同时运行多个程序。比如：现在我们上课一边使用编辑器，一边使用录屏软件，同时还开着画图板，dos窗口等软件。此时，这些程序是在同时运行，感觉这些软件好像在同一时刻运行着。 </p>
+<p>实际上，CPU(中央处理器)使用抢占式调度模式在多个线程间进行着高速的切换。对于CPU的一个核而言，某个时刻，只能执行一个线程，而 CPU的在多个线程间切换速度相对我们的感觉要快，看上去就是 在同一时刻运行。 其实，多线程程序并不能提高程序的运行速度，但能够提高程序运行效率，让CPU的 使用率更高。</p>
+<p><strong>4.3</strong> <strong>创建线程类</strong></p>
+<p>Java使用 java.lang.Thread 类代表<strong>线程</strong>，所有的线程对象都必须是Thread类或其子类的实例。每个线程的作用是完成一定的任务，实际上就是执行一段程序流即一段顺序执行的代码。Java使用线程执行体来代表这段程序流。 </p>
+<p>Java中通过继承Thread类来<strong>创建</strong>并<strong>启动多线程</strong>的步骤如下： </p>
+<p>\1. 定义Thread类的子类，并重写该类的run()方法，该run()方法的方法体就代表了线程需要完成的任务,因此把run()方法称为线程执行体。 </p>
+<p>\2. 创建Thread子类的实例，即创建了线程对象 </p>
+<p>\3. 调用线程对象的start()方法来启动该线程 </p>
+<p>代码如下： </p>
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day14;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        MyThread1 mt=<span class="keyword">new</span> <span class="title class_">MyThread1</span>(<span class="string">&quot;新的线程!&quot;</span>);</span><br><span class="line">        mt.start();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;main线程！&quot;</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义线程类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day14;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread1</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MyThread1</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>(name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">            System.out.println(getName()+<span class="string">&quot;正在执行!&quot;</span>+i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/day05%E5%BC%82%E5%B8%B8%E3%80%81%E7%BA%BF%E7%A8%8B%E7%AC%94%E8%AE%B0/" data-id="clkqudeyc0003bcqz74zc8lc0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-day04上课笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/day04%E4%B8%8A%E8%AF%BE%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.868Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="约瑟夫环"><a href="#约瑟夫环" class="headerlink" title="约瑟夫环"></a>约瑟夫环</h2><h4 id="100个人数到3的人出圈求最后一个出圈的人的编号"><a href="#100个人数到3的人出圈求最后一个出圈的人的编号" class="headerlink" title="100个人数到3的人出圈求最后一个出圈的人的编号"></a>100个人数到3的人出圈求最后一个出圈的人的编号</h4><h2 id="Map集合"><a href="#Map集合" class="headerlink" title="Map集合"></a>Map集合</h2><p><strong>1.1</strong> <strong>概述</strong> </p>
+<p>现实生活中，我们常会看到这样的一种集合：IP地址与主机名，身份证号与个人，系统用户名与系统用户对象等， 这种一一对应的关系，就叫做映射。Java提供了专门的集合类用来存放这种对象关系的对象，即 java.util.Map 接口。</p>
+<p>Collection 中的集合，元素是孤立存在的（理解为单身），向集合中存储元素采用一个个元素的方式存储。 </p>
+<p>Map 中的集合，元素是成对存在的(理解为夫妻)。每个元素由键与值两部分组成，通过键可以找对所对应的值。 </p>
+<p>Collection 中的集合称为单列集合， Map 中的集合称为双列集合。 </p>
+<p>需要注意的是， Map 中的集合不能包含重复的键，值可以重复；每个键只能对应一个值。 </p>
+<p><strong>1.2 Map****常用子类</strong> </p>
+<p>通过查看Map接口描述，看到Map有多个子类，这里我们主要讲解常用的HashMap集合、LinkedHashMap集合。 </p>
+<p><strong>HashMap</strong>：存储数据采用的哈希表结构，元素的存取顺序不能保证一致。由于要保证键的唯一、不重复，需 要重写键的hashCode()方法、equals()方法。 </p>
+<p><strong>LinkedHashMap</strong>：HashMap下有个子类LinkedHashMap，存储数据采用的哈希表结构+链表结构。通过链表结构可以保证元素的存取顺序一致；通过哈希表结构可以保证的键的唯一、不重复，需要重写键的hashCode()方法、equals()方法。 </p>
+<p>tips：Map接口中的集合都有两个泛型变量,在使用时，要为两个泛型变量赋予数据类型。两个泛型变量的数据类型可以相同，也可以不同。</p>
+<p>1.3 Map接口中的常用方法</p>
+<p>Map接口中定义了很多方法，常用的如下： </p>
+<p>public V put(K key, V value) : 把指定的键与指定的值添加到Map集合中。 </p>
+<p>public V remove(Object key) : 把指定的键 所对应的键值对元素 在Map集合中删除，返回被删除元素的值。 </p>
+<p>public V get(Object key) 根据指定的键，在Map集合中获取对应的值。 </p>
+<p>public Set<K> keySet() : 获取Map集合中所有的键，存储到Set集合中。 </p>
+<p>public Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() : 获取到Map集合中所有的键值对对象的集合(Set集合)。</p>
+<p>Map接口的方法演示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        HashMap&lt;String,String&gt; map=<span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;黄晓明&quot;</span>,<span class="string">&quot;杨颖&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;文章&quot;</span>,<span class="string">&quot;马伊利&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;邓超&quot;</span>,<span class="string">&quot;孙俪&quot;</span>);</span><br><span class="line">        System.out.println(map);</span><br><span class="line">        System.out.println(map.remove(<span class="string">&quot;邓超&quot;</span>));</span><br><span class="line">        System.out.println(map);</span><br><span class="line">        System.out.println(map.get(<span class="string">&quot;黄晓明&quot;</span>));</span><br><span class="line">        System.out.println(map.get(<span class="string">&quot;邓超&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>tips: </p>
+<p>使用put方法时，若指定的键(key)在集合中没有，则没有这个键对应的值，返回null，并把指定的键值添加到 集合中； </p>
+<p>若指定的键(key)在集合中存在，则返回值为集合中键对应的值（该值为替换前的值），并把指定键所对应的值，替换成指定的新值。 </p>
+<p>1.4 Map集合遍历键找值方式</p>
+<p>键找值方式：即通过元素中的键，获取键所对应的值 </p>
+<p>分析步骤： </p>
+<p>\1. 获取Map中所有的键，由于键是唯一的，所以返回一个Set集合存储所有的键。方法提示: keyset() </p>
+<p>\2. 遍历键的Set集合，得到每一个键。 </p>
+<p>\3. 根据键，获取键所对应的值。方法提示: get(K key)</p>
+<p>代码演示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        HashMap&lt;String,String&gt; map=<span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;胡歌&quot;</span>,<span class="string">&quot;霍建华&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;郭德纲&quot;</span>,<span class="string">&quot;于谦&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;薛之谦&quot;</span>,<span class="string">&quot;大张伟&quot;</span>);</span><br><span class="line">        Set&lt;String&gt; keys=map.keySet();</span><br><span class="line">        <span class="keyword">for</span> (String key : keys) &#123;</span><br><span class="line">            String values=map.get(key);</span><br><span class="line">            System.out.println(key+<span class="string">&quot;的cp是&quot;</span>+values);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1.5 Entry键值对对象</p>
+<p>我们已经知道， Map 中存放的是两种对象，一种称为<strong>key</strong>(键)，一种称为<strong>value</strong>(值)，它们在在 Map 中是一一对应关系，这一对对象又称做 Map 中的一个 Entry(项) 。 Entry 将键值对的对应关系封装成了对象。即键值对对象，这样我们在遍历 Map 集合时，就可以从每一个键值对（ Entry ）对象中获取对应的键与对应的值。 </p>
+<p>既然Entry表示了一对键和值，那么也同样提供了获取对应键和对应值得方法： </p>
+<p>public K getKey() ：获取Entry对象中的键。 </p>
+<p>public V getValue() ：获取Entry对象中的值。 </p>
+<p>在Map集合中也提供了获取所有Entry对象的方法： </p>
+<p>public Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet() : 获取到Map集合中所有的键值对对象的集合(Set集合)。 </p>
+<p>1.6 Map集合遍历键值对方式</p>
+<p>操作步骤与图解： </p>
+<p>\1. 获取Map集合中，所有的键值对(Entry)对象，以Set集合形式返回。方法提示: entrySet() 。 </p>
+<p>\2. 遍历包含键值对(Entry)对象的Set集合，得到每一个键值对(Entry)对象。 </p>
+<p>\3. 通过键值对(Entry)对象，获取Entry对象中的键与值。 方法提示: getkey() getValue()</p>
+<p>案例演示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapDemo2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        HashMap&lt;String,String&gt; map=<span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;胡歌&quot;</span>,<span class="string">&quot;霍建华&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;郭德纲&quot;</span>,<span class="string">&quot;于谦&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;薛之谦&quot;</span>,<span class="string">&quot;大张伟&quot;</span>);</span><br><span class="line">        Set&lt; Map.Entry&lt;String,String&gt;&gt; entrySet=map.entrySet();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; stringStringEntry : entrySet) &#123;</span><br><span class="line">            String key=stringStringEntry.getKey();</span><br><span class="line">            String value=stringStringEntry.getValue();</span><br><span class="line">            System.out.println(key+<span class="string">&quot;的cp是&quot;</span>+value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>tips：Map集合不能直接使用迭代器或者foreach进行遍历。但是转成Set之后就可以使用了。</p>
+<p>1.7 HashMap存储自定义类型键值</p>
+<p>练习：每位学生（姓名，年龄）都有自己的家庭住址。那么，既然有对应关系，则将学生对象和家庭住址存储到map集合中。学生作为键, 家庭住址作为值。 </p>
+<p>注意，学生姓名相同并且年龄相同视为同一名学生。 </p>
+<p>学生类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Student&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == o) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="literal">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> (Student) o;</span><br><span class="line">        <span class="keyword">return</span> age == student.age &amp;&amp; Objects.equals(name, student.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(name, age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapDemo3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Map&lt;Student,String&gt; map=<span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Student,String&gt;();</span><br><span class="line">        map.put(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;lisi&quot;</span>,<span class="number">28</span>),<span class="string">&quot;上海&quot;</span>);</span><br><span class="line">        map.put(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;wangwu&quot;</span>,<span class="number">22</span>),<span class="string">&quot;北京&quot;</span>);</span><br><span class="line">        map.put(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;zhaoliu&quot;</span>,<span class="number">24</span>),<span class="string">&quot;成都&quot;</span>);</span><br><span class="line">        map.put(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;zhouqi&quot;</span>,<span class="number">25</span>),<span class="string">&quot;广州&quot;</span>);</span><br><span class="line">        map.put(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;wangwu&quot;</span>,<span class="number">22</span>),<span class="string">&quot;南京&quot;</span>);</span><br><span class="line">        Set&lt;Student&gt; keySet=map.keySet();</span><br><span class="line">        <span class="keyword">for</span> (Student student : keySet) &#123;</span><br><span class="line">            String value=map.get(student);</span><br><span class="line">            System.out.println(student.toString()+<span class="string">&quot;......&quot;</span>+value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>当给HashMap中存放自定义对象时，如果自定义对象作为key存在，这时要保证对象唯一，必须复写对象的hashCode和equals方法(如果忘记，请回顾HashSet存放自定义对象)。 </p>
+<p>如果要保证map中存放的key和取出的顺序一致，可以使用 java.util.LinkedHashMap 集合来存放。 </p>
+<p>1.8 LinkedHashMap</p>
+<p>我们知道HashMap保证成对元素唯一，并且查询速度很快，可是成对元素存放进去是没有顺序的，那么我们要保 </p>
+<p>证有序，还要速度快怎么办呢？ </p>
+<p>在HashMap下面有一个子类LinkedHashMap，它是链表和哈希表组合的一个数据存储结构。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkHashMapDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        LinkedHashMap&lt;String,String&gt; map=<span class="keyword">new</span> <span class="title class_">LinkedHashMap</span>&lt;&gt;();</span><br><span class="line">        map.put(<span class="string">&quot;邓超&quot;</span>,<span class="string">&quot;孙俪&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;李晨&quot;</span>,<span class="string">&quot;范冰冰&quot;</span>);</span><br><span class="line">        map.put(<span class="string">&quot;刘德华&quot;</span>,<span class="string">&quot;朱丽倩&quot;</span>);</span><br><span class="line">        Set&lt;Map.Entry&lt;String,String&gt;&gt; entrySet=map.entrySet();</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;String, String&gt; stringStringEntry : entrySet) &#123;</span><br><span class="line">            System.out.println(stringStringEntry.getKey()+<span class="string">&quot; &quot;</span>+stringStringEntry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>1.9 Map集合练习</p>
+<p><strong>需求：</strong> </p>
+<p>计算一个字符串中每个字符出现次数。 </p>
+<p><strong>分析：</strong> </p>
+<p>\1. 获取一个字符串对象 </p>
+<p>\2. 创建一个Map集合，键代表字符，值代表次数。</p>
+<p>\3. 遍历字符串得到每个字符。 </p>
+<p>\4. 判断Map中是否有该键。 </p>
+<p>\5. 如果没有，第一次出现，存储次数为1；如果有，则说明已经出现过，获取到对应的值进行++，再次存储。 </p>
+<p>\6. 打印最终结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MapDemo4</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Scanner sc=<span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        String line=sc.nextLine();</span><br><span class="line">        findChar(line);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">findChar</span><span class="params">(String line)</span>&#123;</span><br><span class="line">        HashMap&lt;Character,Integer&gt;  map=<span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Character,Integer&gt;();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;line.length();i++)&#123;</span><br><span class="line">            <span class="type">char</span> c=line.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(!map.containsKey(c))&#123;</span><br><span class="line">                map.put(c,<span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                Integer count=map.get(c);</span><br><span class="line">                map.put(c,++count);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(map);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="第二章-补充知识点"><a href="#第二章-补充知识点" class="headerlink" title="第二章 补充知识点"></a><strong>第二章 补充知识点</strong></h3><p><strong>2.1 JDK9</strong>对集合添加的优化</p>
+<p>通常，我们在代码中创建一个集合（例如，List 或 Set ），并直接用一些元素填充它。 实例化集合，几个 add方法调用，使得代码重复。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AddDemo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;String&gt; list=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        list.add(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;def&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;hij&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;klm&quot;</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Java 9，添加了几种集合工厂方法,更方便创建少量元素的集合、map实例。新的List、Set、Map的静态工厂方法可以更方便地创建集合的不可变实例。 </p>
+<p>例子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day08;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AddDemo2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Set&lt;String&gt; str1= Set.of(<span class="string">&quot;abc&quot;</span>,<span class="string">&quot;def&quot;</span>,<span class="string">&quot;hij&quot;</span>);</span><br><span class="line">        System.out.println(str1);</span><br><span class="line">        Map&lt;String,Integer&gt;str2= Map.of(<span class="string">&quot;a&quot;</span>,<span class="number">1</span>,<span class="string">&quot;b&quot;</span>,<span class="number">2</span>);</span><br><span class="line">        System.out.println(str2);</span><br><span class="line">        List&lt;String&gt; str3= List.of(<span class="string">&quot;a&quot;</span>,<span class="string">&quot;b&quot;</span>);</span><br><span class="line">        System.out.println(str3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>需要注意以下两点： </p>
+<p>1:of()方法只是Map，List，Set这三个接口的静态方法，其父类接口和子类实现并没有这类方法，比如HashSet，ArrayList等待； </p>
+<p>2:返回的集合是不可变的；</p>
+<p>2.2 Debug追踪</p>
+<p><strong>第三章 模拟斗地主洗牌发牌</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/day04%E4%B8%8A%E8%AF%BE%E7%AC%94%E8%AE%B0/" data-id="clkqudexy0000bcqz66nbe2cs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/">day03 课上笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98%E8%AE%AD%E7%BB%83%E4%B9%8B%E4%BA%8C%E5%88%86%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%B3%BB%E5%88%97/">每日一题之滑动窗口</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">一道算法题之求x的平方根</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%8E%A5%E9%BE%99%E6%95%B0%E5%88%97/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

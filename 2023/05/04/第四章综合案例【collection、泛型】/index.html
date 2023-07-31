@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>day03 课上笔记 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="collections和collections的区别在 Java 中，java.util 包下的 Collections 和 Collection 是不同的概念。java.util.Collections是 Java 标准库中的一个工具类，提供了一些有用的静态方法，如sort、binarySearch、reverse、shuffle 等，可以帮助我们更加高效地操作集合类型。java.util.Co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="day03 课上笔记">
+<meta property="og:url" content="http://example.com/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="collections和collections的区别在 Java 中，java.util 包下的 Collections 和 Collection 是不同的概念。java.util.Collections是 Java 标准库中的一个工具类，提供了一些有用的静态方法，如sort、binarySearch、reverse、shuffle 等，可以帮助我们更加高效地操作集合类型。java.util.Co">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-05-04T12:17:00.887Z">
+<meta property="article:modified_time" content="2023-04-15T09:09:27.758Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-第四章综合案例【collection、泛型】" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/" class="article-date">
+  <time class="dt-published" datetime="2023-05-04T12:17:00.887Z" itemprop="datePublished">2023-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      day03 课上笔记
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="collections和collections的区别"><a href="#collections和collections的区别" class="headerlink" title="collections和collections的区别"></a>collections和collections的区别</h3><h4 id="在-Java-中，java-util-包下的-Collections-和-Collection-是不同的概念。"><a href="#在-Java-中，java-util-包下的-Collections-和-Collection-是不同的概念。" class="headerlink" title="在 Java 中，java.util 包下的 Collections 和 Collection 是不同的概念。"></a>在 Java 中，<code>java.util</code> 包下的 <code>Collections</code> 和 <code>Collection</code> 是不同的概念。</h4><h4 id="java-util-Collections是-Java-标准库中的一个工具类，提供了一些有用的静态方法，如sort、binarySearch、reverse、shuffle-等，可以帮助我们更加高效地操作集合类型。"><a href="#java-util-Collections是-Java-标准库中的一个工具类，提供了一些有用的静态方法，如sort、binarySearch、reverse、shuffle-等，可以帮助我们更加高效地操作集合类型。" class="headerlink" title="java.util.Collections是 Java 标准库中的一个工具类，提供了一些有用的静态方法，如sort、binarySearch、reverse、shuffle 等，可以帮助我们更加高效地操作集合类型。"></a>java.util.Collections<code>是 Java 标准库中的一个工具类，提供了一些有用的静态方法，如</code>sort<code>、</code>binarySearch<code>、</code>reverse<code>、</code>shuffle<code> 等，可以帮助我们更加高效地操作集合类型。</code></h4><h4 id="java-util-Collection-是-Java-标准库中的一个接口，它定义了一些通用的集合类型的接口，如-add、remove、size、contains-等。所有的集合类型都实现了-Collection-接口，因此我们可以使用统一的方式来操作不同的集合类型。"><a href="#java-util-Collection-是-Java-标准库中的一个接口，它定义了一些通用的集合类型的接口，如-add、remove、size、contains-等。所有的集合类型都实现了-Collection-接口，因此我们可以使用统一的方式来操作不同的集合类型。" class="headerlink" title="java.util.Collection 是 Java 标准库中的一个接口，它定义了一些通用的集合类型的接口，如 add、remove、size、contains 等。所有的集合类型都实现了 Collection 接口，因此我们可以使用统一的方式来操作不同的集合类型。"></a><code>java.util.Collection</code> 是 Java 标准库中的一个接口，它定义了一些通用的集合类型的接口，如 <code>add</code>、<code>remove</code>、<code>size</code>、<code>contains</code> 等。所有的集合类型都实现了 <code>Collection</code> 接口，因此我们可以使用统一的方式来操作不同的集合类型。</h4><h4 id="因此，java-util-Collections-和-java-util-Collection-在-Java-中也是不同的概念，分别代表了一个工具类和一个接口。"><a href="#因此，java-util-Collections-和-java-util-Collection-在-Java-中也是不同的概念，分别代表了一个工具类和一个接口。" class="headerlink" title="因此，java.util.Collections 和 java.util.Collection 在 Java 中也是不同的概念，分别代表了一个工具类和一个接口。"></a>因此，<code>java.util.Collections</code> 和 <code>java.util.Collection</code> 在 Java 中也是不同的概念，分别代表了一个工具类和一个接口。</h4><h2 id="突然出现的欠条"><a href="#突然出现的欠条" class="headerlink" title="突然出现的欠条"></a>突然出现的欠条</h2><ul>
+<li><p><input checked="" disabled="" type="checkbox"> 
+日历为什么+2</p>
+<p>这条语句是为了将日历的起始日期设置为当前周的第一天。</p>
+<p>在这段代码中，<code>calendar.set(Calendar.DATE ,-week+2)</code> 的作用是将 <code>Calendar</code> 对象的日期设置为当前月份的第一周的第一天。</p>
+<p><code>Calendar.DAY_OF_WEEK</code> 字段返回当前日期的星期几（星期日、星期一等）。如果当前日期不是一周的第一天，则 <code>week</code> 将大于 1。因此，<code>-week+2</code> 将减去从当前日期到本周第一天（在本例中为星期日）的天数，并再加上 2 天，以到达当前周的第一天。</p>
+<p>通过将 <code>DATE</code> 字段设置为 <code>week+2</code>，可以从当前周的第一天开始显示日历，并在上一个月的日历中显示上一周的剩余天数。这确保了日历正确地显示了各个列中的正确星期几。</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+String常量池</p>
+</li>
+</ul>
+<p>Poker.java</p>
+<p>准别一副牌、洗牌、然后准备发牌</p>
+<p>Player1.java Player2.java Player3.java，有三名玩家，所以发牌的时候直接使用i%3&#x3D;&#x3D;0||1||2来进行发牌。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">51</span>;i++)&#123;</span><br><span class="line">      <span class="keyword">if</span>(i%<span class="number">3</span>==<span class="number">0</span>)&#123;</span><br><span class="line">          Player1.add(PokerBox.remove(<span class="number">0</span>));</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i%<span class="number">3</span>==<span class="number">1</span>)&#123;</span><br><span class="line">          Player2.add(PokerBox.remove(<span class="number">0</span>));</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">          Player3.add(PokerBox.remove(<span class="number">0</span>));</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有两种方法，用get方法，pokerBox不变，但是使用remove方法的话，最后的三张就是pokerBox里面剩下的牌。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>栈、队列、数组、链表、红黑树</p>
+<h4 id="栈：stack（先进后出），栈的出口和入口都是一样的，都是栈的顶端位置"><a href="#栈：stack（先进后出），栈的出口和入口都是一样的，都是栈的顶端位置" class="headerlink" title="栈：stack（先进后出），栈的出口和入口都是一样的，都是栈的顶端位置"></a>栈：stack（先进后出），栈的出口和入口都是一样的，都是栈的顶端位置</h4><p>压栈：存元素</p>
+<p>入栈：取元素</p>
+<h4 id="队列：queue（先进先出），栈的入口、出口各占一侧"><a href="#队列：queue（先进先出），栈的入口、出口各占一侧" class="headerlink" title="队列：queue（先进先出），栈的入口、出口各占一侧"></a>队列：queue（先进先出），栈的入口、出口各占一侧</h4><h4 id="数组：array，查询快，增删慢"><a href="#数组：array，查询快，增删慢" class="headerlink" title="数组：array，查询快，增删慢"></a>数组：array，查询快，增删慢</h4><h4 id="链表：Linkedlist（单向链表），查找慢，增删快"><a href="#链表：Linkedlist（单向链表），查找慢，增删快" class="headerlink" title="链表：Linkedlist（单向链表），查找慢，增删快"></a>链表：Linkedlist（单向链表），查找慢，增删快</h4><h3 id="实现链表"><a href="#实现链表" class="headerlink" title="实现链表"></a>实现链表</h3><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><h2 id="set接口"><a href="#set接口" class="headerlink" title="set接口"></a>set接口</h2><p>java.util.Set 接口和 java.util.List 接口一样，同样继承自 Collection 接口，它与 Collection 接口中的方 </p>
+<p>法基本一致，并没有对 Collection 接口进行功能上的扩充，只是比 Collection 接口更加严格了。与 List 接口不 </p>
+<p>同的是， Set 接口中元素无序，并且都会以某种规则保证存入的元素不出现重复。 </p>
+<p>Set 集合有多个子类，这里我们介绍其中的 java.util.HashSet 、 java.util.LinkedHashSet 这两个集合。</p>
+<h3 id="HashSet集合介绍"><a href="#HashSet集合介绍" class="headerlink" title="HashSet集合介绍"></a>HashSet集合介绍</h3><p>java.util.HashSet 是 Set 接口的一个实现类，它所存储的元素是不可重复的，并且元素都是无序的(即存取顺序 不一致)。 java.util.HashSet 底层的实现其实是一个 java.util.HashMap 支持，由于我们暂时还未学习，先做了 解。 </p>
+<p>HashSet 是根据对象的哈希值来确定元素在集合中的存储位置，因此具有良好的存取和查找性能。<strong>保证元素唯一性的方式依赖于： hashCode 与 equals 方法。</strong> </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HashSetDemo</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"><span class="comment">//创建 Set集合</span></span><br><span class="line">	HashSet&lt;String&gt; set = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;String&gt;();</span><br><span class="line"><span class="comment">//添加元素</span></span><br><span class="line">	set.add(<span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;cba&quot;</span>));</span><br><span class="line">	set.add(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">	set.add(<span class="string">&quot;bac&quot;</span>);</span><br><span class="line">	set.add(<span class="string">&quot;cba&quot;</span>);</span><br><span class="line"><span class="comment">//遍历</span></span><br><span class="line">	<span class="keyword">for</span> (String name : set) &#123;</span><br><span class="line">		System.out.println(name);</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>tips:Set集合取出元素的方式可以采用：迭代器、增强for。</p>
+<h3 id="2-2-HashSet集合存储数据的结构（哈希表）"><a href="#2-2-HashSet集合存储数据的结构（哈希表）" class="headerlink" title="2.2 HashSet集合存储数据的结构（哈希表）"></a><strong>2.2 HashSet集合存储数据的结构（哈希表）</strong></h3><p>什么是哈希表呢？ （HashMap）</p>
+<p>在<strong>JDK1.8</strong>之前，哈希表底层采用数组+链表实现，即使用链表处理冲突，同一hash值的链表都存储在一个链表里。 </p>
+<p>但是当位于一个桶中的元素较多，即hash值相等的元素较多时，通过key值依次查找的效率较低。而JDK1.8中，哈 希表存储采用数组+链表+红黑树实现，当链表长度超过阈值（8）时，将链表转换为红黑树，这样大大减少了查找 时间。 </p>
+<p>简单的来说，哈希表是由数组+链表+红黑树（JDK1.8增加了红黑树部分）实现的。</p>
+<p>总而言之，</p>
+<p><strong>JDK1.8</strong>引入红黑树大程度优化了HashMap的性能，那么对于我们来讲保证HashSet集合元素的唯一， 其实就是根据对象的hashCode和equals方法来决定的。如果我们往集合中存放自定义的对象，那么保证其唯一， 就必须复写hashCode和equals方法建立属于当前对象的比较方式。</p>
+<h3 id="2-3-HashSet存储自定义类型元素"><a href="#2-3-HashSet存储自定义类型元素" class="headerlink" title="2.3 HashSet存储自定义类型元素"></a>2.3 HashSet存储自定义类型元素</h3><p>给HashSet中存放自定义类型元素时，需要重写对象中的hashCode和equals方法，建立自己的比较方式，才能保 证HashSet集合中的对象唯一 </p>
+<p>创建Student类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == o) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="literal">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student</span> <span class="operator">=</span> (Student) o;</span><br><span class="line">        <span class="keyword">return</span> age == student.age &amp;&amp; Objects.equals(name, student.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(name, age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Student&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>创建测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HashSetDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        HashSet&lt;Student&gt; hashSet=<span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        Student stu=<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;于谦&quot;</span>,<span class="number">43</span>);</span><br><span class="line">        hashSet.add(stu);</span><br><span class="line">        hashSet.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;郭德纲&quot;</span>,<span class="number">48</span>));</span><br><span class="line">        hashSet.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;于谦&quot;</span>,<span class="number">43</span>));</span><br><span class="line">        hashSet.add(<span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;郭麒麟&quot;</span>,<span class="number">29</span>));</span><br><span class="line">        hashSet.add(stu);</span><br><span class="line">        <span class="keyword">for</span> (Student student : hashSet) &#123;</span><br><span class="line">            System.out.println(student);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>2.3 LinkedHashSet</strong> </p>
+<p>我们知道HashSet保证元素唯一，可是元素存放进去是没有顺序的，那么我们要保证有序，怎么办呢？ </p>
+<p>在HashSet下面有一个子类 java.util.LinkedHashSet ，它是链表和哈希表组合的一个数据存储结构。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"><span class="keyword">import</span> java.util.LinkedHashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">LinkedHashSetDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Set&lt;String&gt; set=<span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;String&gt;();</span><br><span class="line">        set.add(<span class="string">&quot;bbb&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;ccc&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;abc&quot;</span>);</span><br><span class="line">        set.add(<span class="string">&quot;bbc&quot;</span>);</span><br><span class="line">        Iterator&lt;String&gt; iterator=set.iterator();</span><br><span class="line">        <span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">            System.out.println(iterator.next());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="补充的点"><a href="#补充的点" class="headerlink" title="补充的点"></a>补充的点</h3><p>Collection下面的两个接口，list和set集合，需要补充的是set集合的下面没有get和remove方法，那么我们在移除元素的时候就需要使用到remove(“aaa”);直接使用元素的名称来进行删除。</p>
+<h3 id="测似TreeSet"><a href="#测似TreeSet" class="headerlink" title="测似TreeSet"></a>测似TreeSet</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.TreeSet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TreeSetDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        TreeSet&lt;String&gt; treeSet=<span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;();</span><br><span class="line">        treeSet.add(<span class="string">&quot;d&quot;</span>);</span><br><span class="line">        treeSet.add(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">        treeSet.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">        treeSet.add(<span class="string">&quot;c&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (String s : treeSet) &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="另一个测试（TreeSet）"><a href="#另一个测试（TreeSet）" class="headerlink" title="另一个测试（TreeSet）"></a>另一个测试（TreeSet）</h3><p>建立一个Person类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Objects;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">implements</span> <span class="title class_">Comparable</span>&lt;Person&gt;&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> id;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Person&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;id=&quot;</span> + id +</span><br><span class="line">                <span class="string">&quot;, name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == o) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="literal">null</span> || getClass() != o.getClass()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">Person</span> <span class="variable">person</span> <span class="operator">=</span> (Person) o;</span><br><span class="line">        <span class="keyword">return</span> id == person.id &amp;&amp; age == person.age &amp;&amp; Objects.equals(name, person.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Objects.hash(id, name, age);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getId</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setId</span><span class="params">(<span class="type">int</span> id)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(<span class="type">int</span> id, String name, <span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.id = id;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(Person o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.id==o.id)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">this</span>.name.compareTo(o.name)==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">this</span>.age==o.age)&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="built_in">this</span>.age-o.age;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="built_in">this</span>.name.compareTo(o.name);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">this</span>.id-o.id;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>建立一个测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.TreeSet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TreeSetDemo2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        TreeSet&lt;Person&gt; treeSet=<span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;();</span><br><span class="line">        treeSet.add(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">10</span>,<span class="string">&quot;小明&quot;</span>,<span class="number">20</span>));</span><br><span class="line">        treeSet.add(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">11</span>,<span class="string">&quot;小红&quot;</span>,<span class="number">21</span>));</span><br><span class="line">        treeSet.add(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">12</span>,<span class="string">&quot;小红&quot;</span>,<span class="number">22</span>));</span><br><span class="line">        <span class="keyword">for</span> (Person person : treeSet) &#123;</span><br><span class="line">            System.out.println(person);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>具体讲解了如何使用TreeSet来进行对元素的排序</p>
+<p>明确了Comparable&lt;&gt;接口中的CompareTo的使用方法</p>
+<h3 id="可别参数"><a href="#可别参数" class="headerlink" title="可别参数"></a>可别参数</h3><p>在<strong>JDK1.5</strong>之后，如果我们定义一个方法需要接受多个参数，并且多个参数类型一致，我们可以对其简化成如下格式：</p>
+<p>修饰符 返回值类型 方法名(参数类型… 形参名){ }</p>
+<p>其实这个书写完全等价与</p>
+<p>修饰符 返回值类型 方法名(参数类型[] 形参名){ } </p>
+<p>只是后面这种定义，在调用时必须传递数组，而前者可以直接传递数据即可。 </p>
+<p><strong>JDK1.5</strong>以后。出现了简化操作。**…** 用在参数上，称之为可变参数。 </p>
+<p>具体的例子（可变参数）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ArrayTestDemo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] arr=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        outPut1(arr);</span><br><span class="line">        outPut2(<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">outPut1</span><span class="params">(<span class="type">int</span>... arr)</span>&#123;</span><br><span class="line">        <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : arr) &#123;</span><br><span class="line">            sum+=i;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">outPut2</span><span class="params">(<span class="type">int</span>... arr)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : arr) &#123;</span><br><span class="line">            sum += i;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>tips: 上述add方法在同一个类中，只能存在一个。因为会发生调用的不确定性 </p>
+<p>可变参数只能存在一个</p>
+<p><strong>注意：如果在方法书写时，这个方法拥有多参数，参数中包含可变参数，可变参数一定要写在参数列表的末 尾位置。</strong> </p>
+<h2 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h2><p><strong>2.1</strong> <strong>常用功能</strong></p>
+<p>java.utils.Collections 是集合工具类，用来对集合进行操作。</p>
+<p>}public static <T> boolean addAll(Collection<T> c, T… elements) :往集合中添加一些元素。 </p>
+<p>public static void shuffle(List&lt;?&gt; list) 打乱顺序 :打乱集合顺序。 </p>
+<p>public static <T> void sort(List<T> list) :将集合中元素按照默认规则排序。 </p>
+<p>public static <T> void sort(List<T> list，Comparator&lt;? super T&gt; ) :将集合中元素按照指定规则排 </p>
+<p>序。 </p>
+<h3 id="测试collections"><a href="#测试collections" class="headerlink" title="测试collections"></a>测试collections</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CollectionsTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ArrayList&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">//原来写法</span></span><br><span class="line">        <span class="comment">//list.add(12);</span></span><br><span class="line">        <span class="comment">//list.add(14);</span></span><br><span class="line">        <span class="comment">//list.add(15);</span></span><br><span class="line">        <span class="comment">//list.add(1000);</span></span><br><span class="line">        <span class="comment">//采用工具类 完成 往集合中添加元素</span></span><br><span class="line">        Collections.addAll(list,<span class="number">9</span>,<span class="number">1</span>,<span class="number">10</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">        Collections.sort(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码演示之后 ，发现我们的集合按照顺序进行了排列，可是这样的顺序是采用默认的顺序，如果想要指定顺序那该 怎么办呢？ </p>
+<p>我们发现还有个方法没有讲， public static <T> void sort(List<T> list，Comparator&lt;? super T&gt; ) :将集合中元素按照指定规则排序。接下来讲解一下指定规则的排列。</p>
+<p>这就将要讲到了比较器Comparator</p>
+<h2 id="Comparator"><a href="#Comparator" class="headerlink" title="Comparator"></a>Comparator</h2><p>我们还是先研究这个方法 </p>
+<p>public static <T> void sort(List<T> list) :将集合中元素按照默认规则排序。 </p>
+<p>不过这次存储的是字符串类型。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CollectionsDemo2</span> &#123;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">ArrayList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">        list.add(<span class="string">&quot;cba&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;aba&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;sba&quot;</span>);</span><br><span class="line">        list.add(<span class="string">&quot;nba&quot;</span>);</span><br><span class="line">        <span class="comment">//排序方法</span></span><br><span class="line">        Collections.sort(list);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们使用的是默认的规则完成字符串的排序，那么默认规则是怎么定义出来的呢？ </p>
+<p>说到排序了，简单的说就是两个对象之间比较大小，那么在JAVA中提供了两种比较实现的方式，一种是比较死板的 采用 java.lang.Comparable 接口去实现，一种是灵活的当我需要做排序的时候在去选择的 java.util.Comparator 接口完成。 </p>
+<p>那么我们采用的 public static <T> void sort(List<T> list) 这个方法完成的排序，实际上要求了被排序的类型 需要实现Comparable接口完成比较的功能，在String类型上如下： </p>
+<p>public final class String implements java.io.Serializable, Comparable<String>, CharSequence {</p>
+<p>String类实现了这个接口，并完成了比较规则的定义，但是这样就把这种规则写死了，那比如我想要字符串按照第 一个字符降序排列，那么这样就要修改String的源代码，这是不可能的了，那么这个时候我们可以使用public static <T> void sort(List<T> list，Comparator&lt;? super T&gt; ) 方法灵活的完成，这个里面就涉及到了 Comparator这个接口，位于位于java.util包下，排序是comparator能实现的功能之一,该接口代表一个比较器，比较器具有可比性！顾名思义就是做排序的，通俗地讲需要比较两个对象谁排在前谁排在后，那么比较的方法就是： </p>
+<p>public int compare(String o1, String o2) ：比较其两个参数的顺序。</p>
+<p>两个对象比较的结果有三种：大于，等于，小于。 </p>
+<p>如果要按照升序排序，则o1 小于o2，返回（负数），相等返回0，01大于02返回（正数）如果要按照降序排序 则o1 小于o2，返回（正数），相等返回0，01大于02返回（负数）</p>
+<p>Person同上</p>
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> day07;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CollectionTest1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ArrayList&lt;Person&gt; list=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        Person p1=<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">1</span>,<span class="string">&quot;小明&quot;</span>,<span class="number">20</span>);</span><br><span class="line">        Person p2=<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">2</span>,<span class="string">&quot;小蓝&quot;</span>,<span class="number">21</span>);</span><br><span class="line">        Person p3=<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">3</span>,<span class="string">&quot;小红&quot;</span>,<span class="number">22</span>);</span><br><span class="line">        list.add(p1);</span><br><span class="line">        list.add(p2);</span><br><span class="line">        list.add(p3);</span><br><span class="line">        Collections.sort(list, <span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Person&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Person o1, Person o2)</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> o1.getAge()-o2.getAge();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        System.out.println(list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-简述Comparable和Comparator两个接口的区别。"><a href="#2-3-简述Comparable和Comparator两个接口的区别。" class="headerlink" title="2.3 简述Comparable和Comparator两个接口的区别。"></a>2.3 简述Comparable和Comparator两个接口的区别。</h3><p><strong>Comparable</strong>：强行对实现它的每个类的对象进行整体排序。这种排序被称为类的自然排序，类的compareTo方法 被称为它的自然比较方法。只能在类中实现compareTo()一次，不能经常修改类的代码实现自己想要的排序。实现此接口的对象列表（和数组）可以通过Collections.sort（和Arrays.sort）进行自动排序，对象可以用作有序映射中的键或有序集合中的元素，无需指定比较器。 </p>
+<p><strong>Comparator</strong>强行对某个对象进行整体排序。可以将Comparator 传递给sort方法（如Collections.sort或Arrays.sort），从而允许在排序顺序上实现精确控制。还可以使用Comparator来控制某些数据结构（如有序set或有序映射）的顺序，或者为那些没有自然顺序的对象collection提供排序</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/" data-id="clkqudeyk000dbcqza89pco7q" data-title="day03 课上笔记" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98%E8%AE%AD%E7%BB%83%E4%B9%8B%E4%BA%8C%E5%88%86%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/05/04/%E7%AC%AC%E5%9B%9B%E7%AB%A0%E7%BB%BC%E5%90%88%E6%A1%88%E4%BE%8B%E3%80%90collection%E3%80%81%E6%B3%9B%E5%9E%8B%E3%80%91/">day03 课上笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E5%88%B7%E9%A2%98%E8%AE%AD%E7%BB%83%E4%B9%8B%E4%BA%8C%E5%88%86%EF%BC%88%E7%AE%80%E5%8D%95%E7%89%88%EF%BC%89/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%B3%BB%E5%88%97/">每日一题之滑动窗口</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%B1%82x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">一道算法题之求x的平方根</a>
+          </li>
+        
+          <li>
+            <a href="/2023/05/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%E4%B9%8B%E6%8E%A5%E9%BE%99%E6%95%B0%E5%88%97/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
